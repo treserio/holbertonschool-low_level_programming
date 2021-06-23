@@ -1,2 +1,2 @@
 #!/bin/bash
-gcc -c $CFILE > $(echo $CFile | tr ".c" ".o")
+gcc -c $CFILE > $(echo $CFILE | tr ".c" ".o")
