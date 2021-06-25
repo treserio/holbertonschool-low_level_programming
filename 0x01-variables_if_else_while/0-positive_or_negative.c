@@ -5,7 +5,7 @@
 
 /* betty style doc for function main goes there */
 /**
- * main - this
+ * main - checks if a value is less than greater than or equals
  * Return: if the value is less than equal to or greater than zero
  */
 int main(void)
@@ -17,13 +17,13 @@ int main(void)
 
 	if (n > 0)
 	{
-		printf("%d is positive", n);
+		printf("%d is positive\n", n);
 	} else if (n == 0)
 	{
-		printf("%d is zero", n);
+		printf("%d is zero\n", n);
 	} else if (n < 0)
 	{
-		printf("%d is negative", n);
+		printf("%d is negative\n", n);
 	}
 	return (0);
 }
