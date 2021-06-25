@@ -1,12 +1,12 @@
 #include <stdlib.h>
 #include <time.h>
-#include <stdio>
+#include <stdio.h>
 /* more headers goes there */
 
 /* betty style doc for function main goes there */
 /**
- * main - this 
- * 
+ * main - this
+ * Return: if the value is less than equal to or greater than zero
  */
 int main(void)
 {
@@ -22,7 +22,7 @@ int main(void)
 	} elif (n == 0)
 	{
 		printf("%d is zero", n);
-	} elif ( n < 0 )
+	} elif (n < 0)
 	{
 		printf("%d is negative", n);
 	}
