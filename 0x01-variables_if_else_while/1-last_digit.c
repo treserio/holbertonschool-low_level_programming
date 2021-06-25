@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <time.h>
+#include <stdlib.h>
 /**
 * main - the last number of a rand number and give details
 * Description: betty is silly
