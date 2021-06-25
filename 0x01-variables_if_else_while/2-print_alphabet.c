@@ -6,9 +6,9 @@
  */
 int main(void)
 {
-	char alpha[] = "abcdefghijklmnopqrstuvwxyz"
+	char alpha[] = "abcdefghijklmnopqrstuvwxyz";
 
-	int ltr
+	int ltr;
 
 	for (ltr = "a"; ltr <= "z"; ++ltr)
 	{
