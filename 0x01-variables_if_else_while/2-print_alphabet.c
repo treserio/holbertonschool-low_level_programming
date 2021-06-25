@@ -6,12 +6,11 @@
  */
 int main(void)
 {
-	char alpha[] = "abcdefghijklmnopqrstuvwxyz";
+	char ltr;
 
-	int ltr;
-
-	for (ltr = "a"; ltr <= "z"; ++ltr)
+	for (ltr = 'a'; ltr <= 'z'; ++ltr)
 	{
 		putchar(ltr);
 	}
+	return (0);
 }
