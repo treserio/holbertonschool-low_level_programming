@@ -19,10 +19,10 @@ int main(void)
 	if (n > 0)
 	{
 		printf("%d is positive", n);
-	} elif (n == 0)
+	} else if (n == 0)
 	{
 		printf("%d is zero", n);
-	} elif (n < 0)
+	} else if (n < 0)
 	{
 		printf("%d is negative", n);
 	}
