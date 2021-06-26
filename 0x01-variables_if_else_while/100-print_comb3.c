@@ -15,7 +15,7 @@ int main(void)
 		{
 			putchar(tens);
 			putchar(ones);
-			if (tens != 56 && y != 57)
+			if (tens != 56 && ones != 57)
 			{
 				putchar(',');
 				putchar(' ');
