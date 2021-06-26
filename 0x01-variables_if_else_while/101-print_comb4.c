@@ -15,6 +15,7 @@ int main(void)
 		{
 			for (ones = tens + 1; ones <= 57; ++ones)
 			{
+				putchar(hund);
 				putchar(tens);
 				putchar(ones);
 				if (hund != 55)
