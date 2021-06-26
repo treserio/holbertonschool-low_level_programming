@@ -9,12 +9,12 @@ int main(void)
 {
 	int first, second, thou, hund, tens, ones;
 
-	for (first = 0, first <= 98; ++first)
+	for (first = 0; first <= 98; ++first)
 	{
 		thou = first / 10;
 		hund = first % 10;
 
-		for (second = first + 1, second <= 99; ++second)
+		for (second = first + 1; second <= 99; ++second)
 		{
 			tens = second / 10 + '0';
 			ones = second % 10 + '0';
