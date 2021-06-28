@@ -9,7 +9,7 @@ int print_sign(int check)
 {
 	if (check < 0)
 	{
-		_putchar('+');
+		_putchar('-');
 		return (1);
 	}
 	else if (check == 0)
@@ -19,7 +19,7 @@ int print_sign(int check)
 	}
 	else
 	{
-		_putchar('0');
+		_putchar('+');
 		return (-1);
 	}
 }
