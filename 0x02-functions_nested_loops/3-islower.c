@@ -4,7 +4,7 @@
  * Return: 1 if c is lowercase else 0
  */
 
-int _islower(int input)
+int _islower(char input)
 {
 	int check = int()input;
 
