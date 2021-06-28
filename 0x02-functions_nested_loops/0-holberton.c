@@ -8,13 +8,12 @@
 int main(void)
 {
 	char str[] = "Holberton";
-	long i, len;
+	int i = 0;
 
-	len = strlen(str);
-
-	for (i = 0; i < len; ++i)
+	while (str[i])
 	{
 		_putchar(str[i]);
+		++i;
 	}
 	_putchar('\n');
 	return (0);
