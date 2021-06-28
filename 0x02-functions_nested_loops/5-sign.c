@@ -1,3 +1,4 @@
+#include "holberton.h"
 /**
  * print_sign - tells if an int is positive, negative, or zero
  * @check: value to be checked
@@ -10,17 +11,17 @@ int print_sign(int check)
 
 	if (check < 0)
 	{
-		out = 45;
-		return (out);
+		_putchar('+');
+		return (1);
 	}
 	else if (check == 0)
 	{
-		out = 48;
-		return (out);
+		_putchar('0');
+		return (0);
 	}
 	else
 	{
-		out = 43;
-		return (out);
+		_putchar('0');
+		return (-1);
 	}
 }
