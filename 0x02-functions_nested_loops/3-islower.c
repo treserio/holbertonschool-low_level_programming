@@ -1,4 +1,4 @@
-#include <stdlib>
+#include <stdlib.h>
 /**
  * _islower - tells if a char is lowercase a-z
  * @input : an int passed to the function
