@@ -9,7 +9,7 @@ int _islower(char input)
 {
 	int check = (int)(input);
 
-	if (check > 97 && check < 123) || (check > 64 && check < 91)
+	if ((check > 97 && check < 123) || (check > 64 && check < 91))
 	{
 		return (1);
 	}
