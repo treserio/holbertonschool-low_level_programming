@@ -2,7 +2,7 @@
 /**
  * print_alphabet - write the alphabet in lowercase
  *
- * Return: zed
+ * Return: nothing (void)
  */
 
 void print_alphabet(void)
