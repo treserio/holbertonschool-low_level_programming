@@ -6,7 +6,7 @@
 
 int print_sign(int check)
 {
-	char out
+	char out;
 
 	if (check < 0)
 	{
