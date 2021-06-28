@@ -6,21 +6,21 @@
 
 int print_sign(int check)
 {
-	char out;
+	int out;
 
 	if (check < 0)
 	{
-		out = '-';
+		out = 45;
 		return (out);
 	}
 	else if (check == 0)
 	{
-		out = '0';
+		out = 48;
 		return (out);
 	}
 	else
 	{
-		out = '+';
+		out = 43;
 		return (out);
 	}
 }
