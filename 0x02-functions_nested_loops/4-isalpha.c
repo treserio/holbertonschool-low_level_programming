@@ -1,11 +1,11 @@
 #include <stdlib.h>
 /**
- * _islower - tells if a char is lower or upper a-z
+ * _isalpha - tells if a char is lower or upper a-z
  * @input : an int passed to the function
  * Return: 1 if c is lowercase else 0
  */
 
-int _islower(char input)
+int _isalpha(char input)
 {
 	int check = (int)(input);
 
