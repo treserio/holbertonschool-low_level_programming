@@ -7,7 +7,7 @@
 
 int _islower(char input)
 {
-	int check = int()input;
+	int check = (int)(input);
 
 	if (check > 97 && check < 123)
 	{
