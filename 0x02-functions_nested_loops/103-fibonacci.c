@@ -7,7 +7,6 @@
  */
 int main(void)
 {
-	int cntr;
 	long a, b, c, result;
 
 	a = 1;
