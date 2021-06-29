@@ -7,19 +7,19 @@
  */
 int main(void)
 {
-	int cntr = 0;
+	int cntr = 2;
 	long a, b, c;
 
 	a = 1;
 	b = 2;
 	printf("%ld, %ld, ", a, b);
 
-	while (cntr < 96)
+	while (cntr < 98)
 	{
 		c = a + b;
 		a = b;
 		b = c;
-		if (cntr < 95)
+		if (cntr < 97)
 		{
 			printf("%ld, ", c);
 			++cntr;
