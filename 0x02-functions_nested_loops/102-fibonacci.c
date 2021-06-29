@@ -22,5 +22,6 @@ int main(void)
 		if (cntr < 47)
 			printf(", ");
 	}
+	printf('\n');
 	return (0);
 }
