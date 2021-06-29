@@ -6,7 +6,8 @@
  */
 int main(void)
 {
-	int cntr, a, b, c;
+	int cntr;
+	long a, b, c;
 
 	a = 1;
 	b = 2;
