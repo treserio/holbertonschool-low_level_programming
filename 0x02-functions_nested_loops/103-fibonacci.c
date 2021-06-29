@@ -11,7 +11,7 @@ int main(void)
 
 	a = 1;
 	b = 2;
-	result = 0;
+	result = 2;
 
 	while (1)
 	{
