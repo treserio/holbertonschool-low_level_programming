@@ -26,8 +26,8 @@ void times_table(void)
  */
 void tbl_out(int out, int inner, int multi)
 {
-	tens = multi / 10;
-	ones = multi % 10;
+	int tens = multi / 10;
+	int ones = multi % 10;
 
 	if (out == 0)
 	{
