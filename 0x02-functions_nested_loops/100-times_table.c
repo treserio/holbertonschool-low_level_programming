@@ -44,6 +44,7 @@ void big_tbl_out(int inner, int hundo, int tenso, int oneso, int stop)
 {
 	if (stop == 0)
 	{
+		_putchar('0');
 	}
 	else
 	{
