@@ -23,7 +23,6 @@ int main(void)
 		{
 			printf("%ld, ", c);
 			++cntr;
-			printf("\n%d", cntr);
 		}
 		else
 		{
