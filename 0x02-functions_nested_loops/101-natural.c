@@ -11,7 +11,7 @@ int main(void)
 
 	while (cntr < 1024)
 	{
-		if (!(cntr % 3) || !(cntr % 5))
+		if ((cntr % 3) || (cntr % 5))
 		{
 			result = 0 + cntr;
 		}
