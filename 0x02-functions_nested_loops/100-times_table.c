@@ -11,18 +11,18 @@ void print_times_table(int _n)
 	}
 	else
 	{
-		int x, y, result;
+		int x, y, result, hundreds, tens, ones;
 
 		for (y = 0; y <= _n; ++y)
 		{
 			for (x = 0; x <= _n; ++x)
 			{
 				result = y * x;
-				int hundreds = result / 100;
-				int tens = result / 10;
-				int ones = result % 10;
+				hundreds = result / 100;
+				tens = result / 10;
+				ones = result % 10;
 
-				tbl_out(x, hundreds, tens, ones);
+				big_tbl_out(x, hundreds, tens, ones);
 			}
 			_putchar('\n');
 		}
