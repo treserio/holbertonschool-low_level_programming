@@ -16,9 +16,11 @@ int main(void)
 	for (cntr = 0; cntr < 48; ++cntr)
 	{
 		c = a + b;
-		printf("%ld, ", c);
+		printf("%ld", c);
 		a = b;
 		b = c;
+		if (cntr < 47)
+			printf(", ");
 	}
 	return (0);
 }
