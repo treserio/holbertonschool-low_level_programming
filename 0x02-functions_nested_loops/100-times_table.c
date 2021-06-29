@@ -19,7 +19,7 @@ void print_times_table(int _n)
 			{
 				result = y * x;
 				hundreds = result / 100;
-				tens = result / 10;
+				tens = (result % 100) / 10;
 				ones = result % 10;
 
 				big_tbl_out(x, hundreds, tens, ones, _n);
