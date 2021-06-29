@@ -4,7 +4,7 @@
  * main - write a list of fibonacci numbers starting with 1 & 2
  * Return: nothing
  */
-void main(void)
+int main(void)
 {
 	int cntr, a, b, c;
 
@@ -19,4 +19,5 @@ void main(void)
 		a = b;
 		b = c;
 	}
+	return (0);
 }
