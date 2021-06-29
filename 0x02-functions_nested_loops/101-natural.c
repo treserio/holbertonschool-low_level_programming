@@ -7,7 +7,7 @@
 int main(void)
 {
 	int cntr = 0;
-	long long result = 0;
+	long result = 0;
 
 	while (cntr < 1024)
 	{
@@ -17,4 +17,5 @@ int main(void)
 		}
 		++cntr;
 	}
+	print("%lb\n", result);
 }
