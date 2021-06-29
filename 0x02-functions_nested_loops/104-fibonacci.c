@@ -13,38 +13,33 @@ int main(void)
 	int cntr = 2;
 
 	printf("%ld, %ld, ", a2, b2);
-	while (cntr < 98)
+	for (cntr = 2; cntr < 98; ++cntr)
 	{
-		if (chek == 0)
-			chek = a2 / bil;
-		if (chek > 0)
-		{
-			if (a1 == 0)
-			{
-				a1 = a2 / bil;
-				a2 = a2 % bil;
-				b1 = b2 / bil;
-				b2 = b2 % bil;
-				result1 = a1 + b1;
-				result2 = a2 + b2;
-				printf("%lu%lu, ", result1, result2);
-			}
-			result1 = (a1 + b1) + ((a2 + b2) / bil);
-			result2 = (a2 + b2) % bil;
-			printf("%lu%lu", result1, result2);
-			a1 = b1;
-			a2 = b2;
-			b1 = result1;
-			b2 = result2;
-		}
-		else
+		while (chek == 0)
 		{
 			result2 = a2 + b2;
 			a2 = b2;
 			b2 = result2;
 			printf("%ld, ", result2);
+			++cntr;
+			chek = a2 / bil;
 		}
-		++cntr;
+		if (a1 == 0)
+		{
+			a1 = a2 / bil;
+			a2 = a2 % bil;
+			b1 = b2 / bil;
+			b2 = b2 % bil;
+		}
+		result1 = (a1 + b1) + ((a2 + b2) / bil);
+		result2 = (a2 + b2) % bil;
+		printf("%lu%09lu", result1, result2);
+		if (cntr < 97)
+			printf(", ");
+		a1 = b1;
+		a2 = b2;
+		b1 = result1;
+		b2 = result2;
 	}
 	printf("\n");
 	return (0);
