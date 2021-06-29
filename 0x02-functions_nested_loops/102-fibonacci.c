@@ -11,12 +11,12 @@ int main(void)
 
 	a = 1;
 	b = 2;
-	printf("%d, %d, ", a, b);
+	printf("%ld, %ld, ", a, b);
 
 	for (cntr = 0; cntr < 48; ++cntr)
 	{
 		c = a + b;
-		printf("%d, ", c);
+		printf("%ld, ", c);
 		a = b;
 		b = c;
 	}
