@@ -8,7 +8,7 @@
 int main(void)
 {
 	int cntr = 2;
-	long a, b, c;
+	unsigned long a, b, c;
 
 	a = 1;
 	b = 2;
@@ -23,6 +23,7 @@ int main(void)
 		{
 			printf("%ld, ", c);
 			++cntr;
+			printf("\n%d", cntr);
 		}
 		else
 		{
