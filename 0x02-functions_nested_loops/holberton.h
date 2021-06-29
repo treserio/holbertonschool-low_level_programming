@@ -14,4 +14,5 @@ int add(int, int);
 void print_to_98(int n);
 void print_times_table(int n);
 void tbl_out(int, int);
+void big_tbl_out(int, int, int, int);
 #endif

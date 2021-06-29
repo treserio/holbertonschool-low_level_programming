@@ -18,9 +18,9 @@ void print_times_table(int _n)
 			for (x = 0; x <= _n; ++x)
 			{
 				result = y * x;
-				int hundreds = multi / 100;
-				int tens = multi / 10;
-				int ones = multi % 10;
+				int hundreds = result / 100;
+				int tens = result / 10;
+				int ones = result % 10;
 
 				tbl_out(x, hundreds, tens, ones);
 			}
@@ -29,14 +29,14 @@ void print_times_table(int _n)
 	}
 }
 /**
- * tbl_out - print ", " where needed
+ * big_tbl_out - print ", " where needed
  * @inner: loop value, x
  * @hundo: hundreds value
  * @tenso: tens value
  * @oneso: ones value
  * Return: void
  */
-void tbl_out(int inner, int hundo, int tenso, int oneso)
+void big_tbl_out(int inner, int hundo, int tenso, int oneso)
 {
 	if (inner == 0)
 	{
