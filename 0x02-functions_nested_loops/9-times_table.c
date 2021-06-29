@@ -29,7 +29,7 @@ void tbl_out(int out, int inner, int multi)
 	int tens = multi / 10;
 	int ones = multi % 10;
 
-	if (out == 0)
+	if (inner == 0)
 	{
 		_putchar('0');
 		_putchar(',');
@@ -49,5 +49,10 @@ void tbl_out(int out, int inner, int multi)
 		_putchar(ones + '0');
 		_putchar(',');
 		_putchar(' ');
+		if (inner < 9)
+		{
+			_putchar(',');
+			_putchar(' ');
+		}
 	}
 }
