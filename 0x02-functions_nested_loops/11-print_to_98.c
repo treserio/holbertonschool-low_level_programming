@@ -21,7 +21,7 @@ void print_to_98(int input)
 		printf("98\n");
 	} else
 	{
-		while (input > 97)
+		while (input > 98)
 		{
 			printf("%d, ", input);
 			--input;
