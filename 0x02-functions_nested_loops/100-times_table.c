@@ -42,29 +42,34 @@ void print_times_table(int _n)
  */
 void big_tbl_out(int inner, int hundo, int tenso, int oneso, int stop)
 {
-	if (inner == 0)
+	if (stop == 0)
 	{
-		_putchar('0');
-		_putchar(',');
-		_putchar(' ');
 	}
 	else
 	{
-		if (hundo == 0)
-			_putchar(' ');
-		else
-			_putchar(hundo + '0');
-
-		if (tenso == 0 && hundo == 0)
-			_putchar(' ');
-		else
-			_putchar(tenso + '0');
-
-		_putchar(oneso + '0');
-		if (inner != stop)
+		if (inner == 0)
 		{
+			_putchar('0');
 			_putchar(',');
 			_putchar(' ');
+		}
+		else
+		{
+			if (hundo == 0)
+				_putchar(' ');
+			else
+				_putchar(hundo + '0');
+			if (tenso == 0 && hundo == 0)
+				_putchar(' ');
+			else
+				_putchar(tenso + '0');
+
+			_putchar(oneso + '0');
+			if (inner != stop)
+			{
+				_putchar(',');
+				_putchar(' ');
+			}
 		}
 	}
 }
