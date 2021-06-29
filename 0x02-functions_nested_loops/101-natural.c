@@ -17,5 +17,6 @@ int main(void)
 		}
 		++cntr;
 	}
-	print("%lb\n", result);
+	printf("%ld\n", result);
+	return (0);
 }
