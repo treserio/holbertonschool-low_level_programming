@@ -55,7 +55,7 @@ void big_tbl_out(int inner, int hundo, int tenso, int oneso, int stop)
 		else
 			_putchar(hundo + '0');
 
-		if (tenso == 0)
+		if (tenso == 0 && hundo == 0)
 			_putchar(' ');
 		else
 			_putchar(tenso + '0');
