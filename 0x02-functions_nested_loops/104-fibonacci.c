@@ -13,7 +13,6 @@ int main(void)
 	a = 1;
 	b = 2;
 	printf("%ld, %ld, ", a, b);
-	result = b;
 
 	while (cntr < 98)
 	{
