@@ -7,7 +7,7 @@
 
 void times_table(void)
 {
-	int x, y, result;
+	int x, y, result, tens, ones;
 
 	for (y = 0; y < 10; ++y)
 	{
@@ -16,22 +16,28 @@ void times_table(void)
 			result = y * x;
 			if (result > 9)
 			{
-				int tens = result / 10;
-				int ones = result % 10;
+				tens = result / 10;
+				ones = result % 10;
+
 				_putchar(tens + '0');
 				_putchar(ones + '0');
-				_putchar(',');
-				_putchar(' ');
+				if (x < 9)
+				{
+					_putchar(',');
+					_putchar(' ');
+				}
 			}
 			else
 			{
 				_putchar(' ');
 				_putchar(result + '0');
-				_putchar(',');
-				_putchar(' ');
+				if (x < 9)
+				{
+					_putchar(',');
+					_putchar(' ');
+				}
 			}
 		}
-		if (y < 9)
-			_putchar('\n');
+		_putchar('\n');
 	}
 }
