@@ -19,12 +19,11 @@ void times_table(void)
 }
 /**
  * tbl_out - print ", " where needed
- * @out: outer loop value, y
  * @inner: loop value, x
  * @multi: result value, or any int
  * Return: void
  */
-void tbl_out(int out, int inner, int multi)
+void tbl_out(int inner, int multi)
 {
 	int tens = multi / 10;
 	int ones = multi % 10;
