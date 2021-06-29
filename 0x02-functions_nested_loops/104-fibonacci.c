@@ -12,7 +12,7 @@ int main(void)
 
 	a = 1;
 	b = 2;
-	printf("%ld, %ld, ", a, b);
+	printf("%lu, %lu, ", a, b);
 
 	while (cntr < 98)
 	{
@@ -21,12 +21,12 @@ int main(void)
 		b = c;
 		if (cntr < 97)
 		{
-			printf("%ld, ", c);
+			printf("%lu, ", c);
 			++cntr;
 		}
 		else
 		{
-			printf("%ld\n", c);
+			printf("%lu\n", c);
 			++cntr;
 		}
 	}
