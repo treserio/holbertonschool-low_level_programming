@@ -2,7 +2,7 @@
 #include <stdio.h>
 /**
  * main - write a list of fibonacci numbers starting with 1 & 2
- * Return: nothing
+ * Return: 0
  */
 int main(void)
 {
