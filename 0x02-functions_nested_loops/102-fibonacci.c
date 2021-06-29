@@ -1,10 +1,10 @@
 #include <stdlib.h>
 #include <stdio.h>
 /**
- * fibonacci - write a list of fibonacci numbers starting with 1 & 2
+ * main - write a list of fibonacci numbers starting with 1 & 2
  * Return: nothing
  */
-void fibonacci(void)
+void main(void)
 {
 	int cntr, a, b, c;
 
