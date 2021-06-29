@@ -14,12 +14,12 @@ int main(void)
 	b = 2;
 	printf("%lu, %lu, ", a, b);
 
-	while (cntr < 100)
+	while (cntr < 98)
 	{
 		c = a + b;
 		a = b;
 		b = c;
-		if (cntr < 99)
+		if (cntr < 97)
 		{
 			printf("%lu, ", c);
 			++cntr;
