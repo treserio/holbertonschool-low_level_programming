@@ -21,7 +21,6 @@ int main(void)
 		{
 			if (a1 == 0)
 			{
-				printf("\n\nSwapped");
 				a1 = a2 / bil;
 				a2 = a2 % bil;
 				b1 = b2 / bil;
