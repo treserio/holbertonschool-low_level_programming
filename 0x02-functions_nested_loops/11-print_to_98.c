@@ -15,10 +15,10 @@ void print_to_98(int input)
 			printf("%d, ", input);
 			++input;
 		}
-		printf("98");
+		printf("98\n");
 	} else if (input == 98)
 	{
-		printf("98");
+		printf("98\n");
 	} else
 	{
 		while (input > 97)
@@ -26,6 +26,6 @@ void print_to_98(int input)
 			printf("%d, ", input);
 			--input;
 		}
-		printf("98");
+		printf("98\n");
 	}
 }
