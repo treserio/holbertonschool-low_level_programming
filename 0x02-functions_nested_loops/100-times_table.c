@@ -19,7 +19,7 @@ void print_times_table(int _n)
 			{
 				result = y * x;
 				hundreds = result / 100;
-				if !(result % 100)
+				if !((result % 100))
 					tens = result % 100;
 				else
 					tens = 0;
