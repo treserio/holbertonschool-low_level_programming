@@ -46,8 +46,6 @@ void tbl_out(int inner, int multi)
 	{
 		_putchar(tens + '0');
 		_putchar(ones + '0');
-		_putchar(',');
-		_putchar(' ');
 		if (inner < 9)
 		{
 			_putchar(',');
