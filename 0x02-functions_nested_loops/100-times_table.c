@@ -1,20 +1,27 @@
 #include "holberton.h"
 /**
  * print_times_table - print out a times table to the _nth power
+ * @_n: input value to decide table length
  * Return: void
  */
 void print_times_table(int _n)
 {
-	int x, y, result;
-
-	for (y = 0; y < _n; ++y)
+	if (_n > 15 || _n < 0)
 	{
-		for (x = 0; x < _n; ++x)
+	}
+	else
+	{
+		int x, y, result;
+
+		for (y = 0; y <= _n; ++y)
 		{
-			result = y * x;
-			tbl_out(x, result);
+			for (x = 0; x <= _n; ++x)
+			{
+				result = y * x;
+				tbl_out(x, result);
+			}
+			_putchar('\n');
 		}
-		_putchar('\n');
 	}
 }
 /**
