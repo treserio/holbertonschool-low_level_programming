@@ -12,7 +12,7 @@ void times_table(void)
 		for (x = 0; x < 10; ++x)
 		{
 			result = y * x;
-			tbl_out(y, x, result);
+			tbl_out(x, result);
 		}
 		_putchar('\n');
 	}
