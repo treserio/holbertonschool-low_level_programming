@@ -31,6 +31,7 @@ void times_table(void)
 				_putchar(' ');
 			}
 		}
-		_putchar('\n');
+		if (y < 9)
+			_putchar('\n');
 	}
 }
