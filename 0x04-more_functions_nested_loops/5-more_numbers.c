@@ -3,7 +3,7 @@
  * more_numbers - print [1-14] 10x
  * Return: nothing
  */
-void print_most_numbers(void)
+void more_numbers(void)
 {
 	int otr = 10, inr, tens, ones;
 
