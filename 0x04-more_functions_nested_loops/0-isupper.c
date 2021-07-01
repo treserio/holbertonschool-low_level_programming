@@ -1,7 +1,7 @@
 /**
  * _isupper - function to check case of a letter
- * input: char to be checked
- * Returns: 1 if input is uppercase, 0 if lower
+ * @input: int val of char to be checked
+ * Return: 1 if input is uppercase, 0 if lower
  */
 int _isupper(int input)
 {
