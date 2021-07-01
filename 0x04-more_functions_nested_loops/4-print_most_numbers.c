@@ -3,7 +3,7 @@
  * print_numbers - prints [0-9] excluding 2 & 4
  * Return: nothing
  */
-void print_numbers(void)
+void print_most_numbers(void)
 {
 	int i;
 
