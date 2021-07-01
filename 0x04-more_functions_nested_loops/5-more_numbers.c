@@ -7,7 +7,7 @@ void more_numbers(void)
 {
 	int otr = 10, inr, tens, ones;
 
-	while (--otr)
+	while (otr--)
 	{
 		for (inr = 0;  inr < 15; ++inr)
 		{
@@ -19,6 +19,6 @@ void more_numbers(void)
 
 			_putchar(ones + '0');
 		}
+		_putchar('\n');
 	}
-	_putchar('\n');
 }
