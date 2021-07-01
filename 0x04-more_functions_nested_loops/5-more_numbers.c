@@ -11,17 +11,13 @@ void more_numbers(void)
 	{
 		for (inr = 0;  inr < 15; ++inr)
 		{
-			if (inr % 10)
-			{
-				tens = inr / 10;
-				ones = inr % 10;
+			tens = inr / 10;
+			ones = inr % 10;
+
+			if (tens != 0)
 				_putchar(tens + '0');
-				_putchar(ones + '0');
-			}
-			else
-			{
-				_putchar(inr + '0');
-			}
+
+			_putchar(ones + '0');
 		}
 	}
 	_putchar('\n');
