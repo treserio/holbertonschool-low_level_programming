@@ -1,3 +1,4 @@
+#include "holberton.h"
 /**
  * _isupper - function to check case of a letter
  * @input: int val of char to be checked
