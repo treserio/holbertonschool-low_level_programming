@@ -1,4 +1,3 @@
-#include "holberton.h"
 #include <stdio.h>
 /**
  * main - print 1 to 100 + newline, if % 3 -> Fizz, if % 5 -> Buzz
@@ -12,13 +11,15 @@ int main(void)
 	for (cntr = 1; cntr <= 100; ++cntr)
 	{
 		if (!(cntr % 3) && !(cntr % 5))
-			printf("FizzBuzz ");
+			printf("FizzBuzz");
 		else if (!(cntr % 3))
-			printf("Fizz ");
+			printf("Fizz");
 		else if (!(cntr % 5))
-			printf("Buzz ");
+			printf("Buzz");
 		else
-			printf("%d ", cntr);
+			printf("%d", cntr);
+		if (cntr < 100)
+			printf(" ");
 	}
 	printf("\n");
 	return (0);
