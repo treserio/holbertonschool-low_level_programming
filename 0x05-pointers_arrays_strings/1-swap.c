@@ -1,6 +1,6 @@
 #include "holberton.h"
 /**
- * reset_to_98 - swap 2 values through pointers
+ * swap_int - swap 2 values through pointers
  * @thing1: pointer to an int value
  * @thing2: pointer to an int value
  * Return: void
