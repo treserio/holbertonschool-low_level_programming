@@ -9,10 +9,10 @@ int _strlen(char *ltr)
 {
 	int size = 0;
 
-	while(*ltr != '\0')
+	while (*ltr != '\0')
 	{
 		++size;
 		ltr++;
 	}
-	return (size - 1);
+	return (size);
 }
