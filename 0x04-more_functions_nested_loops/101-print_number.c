@@ -25,7 +25,7 @@ void print_number(int val)
 	{
 		for (; exp >= 1; exp /= 10)
 		{
-			_putchar(((val / exp)%10)+'0');
+			_putchar(((val / exp) % 10) + '0');
 		}
 	}
 	else
