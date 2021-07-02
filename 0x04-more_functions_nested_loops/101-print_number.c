@@ -21,7 +21,7 @@ void print_number(int val)
 		far_left = val / 10;
 
 		/* find the last digit */
-		while (far_left >= 10 && !(far_left % 10 == 0))
+		while (far_left >= 10)
 		{
 			far_left /= 10;
 			exponent *= 10;
@@ -40,5 +40,5 @@ void print_number(int val)
 		/* remove the farthest left digit */
 		val -= exponent * far_left;
 	}
-	_putchar(val+'0');
+	_putchar(val + '0');
 }
