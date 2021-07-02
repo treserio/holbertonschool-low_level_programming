@@ -1,5 +1,4 @@
 #include "holberton.h"
-
 /**
  * print_number - print an int of unknown size without long, arrays, pointers
  * @val: input value to print
