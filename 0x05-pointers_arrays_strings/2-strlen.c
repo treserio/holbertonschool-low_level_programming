@@ -7,7 +7,7 @@
 
 int _strlen(char *ltr)
 {
-	int size;
+	int size = 0;
 
 	while(ltr != "\0")
 	{
