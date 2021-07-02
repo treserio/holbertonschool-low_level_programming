@@ -3,7 +3,7 @@
  * main - find the largest prime factor of 612852475143
  * Return: 0
  */
-int main (void)
+int main(void)
 {
 	long fact = 1, num = 612852475143;
 
@@ -16,5 +16,5 @@ int main (void)
 		++fact;
 	}
 	printf("%ld\n", fact);
-	return(0);
+	return (0);
 }
