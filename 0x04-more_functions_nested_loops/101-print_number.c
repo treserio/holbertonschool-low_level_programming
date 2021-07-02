@@ -6,7 +6,7 @@
  */
 void print_number(int val)
 {
-	int exp;
+	unsigned int exp;
 
 	if (val < 0)
 	{
