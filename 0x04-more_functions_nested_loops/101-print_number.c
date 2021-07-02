@@ -6,7 +6,7 @@
  */
 void print_number(int val)
 {
-	unsigned int exp;
+	unsigned int exp, dumbthing;
 
 	if (val < 0)
 	{
@@ -14,17 +14,19 @@ void print_number(int val)
 		_putchar('-');
 	}
 
+	dumbthing = val;
+
 	/* find power */
-	for (exp = 10; (val / exp >= 10); exp *= 10)
+	for (exp = 10; (dumbthing / exp >= 10); exp *= 10)
 	{
 	}
 
 	/* check for zero? */
-	if (val > 9)
+	if (dumbthing > 9)
 	{
 		for (; exp >= 1; exp /= 10)
 		{
-			_putchar(((val / exp) % 10) + '0');
+			_putchar(((dumbthing / exp) % 10) + '0');
 		}
 	}
 	else
