@@ -6,7 +6,7 @@
  */
 void print_rev(char *str)
 {
-	int length;
+	int length = 0;
 
 	/* find the length */
 	while (*str != '\0')
