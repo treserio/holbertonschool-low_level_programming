@@ -1,7 +1,7 @@
 #include "holberton.h"
 /**
- * print_rev - 
- * @s: pointer to an int value to be reset
+ * print_rev - reverses the string fed it through pointer
+ * @str: pointer to an int value to be reset
  * Return: void
  */
 void print_rev(char *str)
