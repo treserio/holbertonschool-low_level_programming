@@ -15,7 +15,7 @@ void print_rev(char *str)
 		++length;
 	}
 	--str;
-	++length;
+
 	/* reverse the string */
 	while (length--)
 	{
