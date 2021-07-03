@@ -4,7 +4,7 @@
  * @str: pointer to an int value to be reset
  * Return: void
  */
-void print_rev(char *str)
+void rev_string(char *str)
 {
 	int length = 0;
 
