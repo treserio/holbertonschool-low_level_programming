@@ -9,13 +9,14 @@ void puts2(char *str)
 	int ltr = 0;
 
 	/* while string print every other char */
-	while(*str)
+	while (*str)
 	{
-		if (! (ltr % 2))
+		if (!(ltr % 2))
 		{
 			_putchar(*str);
 		}
 		++ltr;
 		++str;
 	}
+	_putchar('\n');
 }
