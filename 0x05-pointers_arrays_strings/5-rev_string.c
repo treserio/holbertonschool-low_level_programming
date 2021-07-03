@@ -7,9 +7,11 @@
 void rev_string(char *str)
 {
 	int length = 0;
+	char *first = str;
+	char temp;
 
 	/* find the length */
-	while (*str != '\0')
+	while (*str)
 	{
 		++str;
 		++length;
@@ -17,9 +19,12 @@ void rev_string(char *str)
 	--str;
 
 	/* reverse the string */
-	while (length--)
+	while (str > first)
 	{
-		_putchar(*str);
+		temp = *str;
+		*str = *first;
+		*first = temp;
+		++first;
 		--str;
 	}
 }
