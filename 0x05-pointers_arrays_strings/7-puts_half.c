@@ -4,7 +4,7 @@
  * @str: pointer to a string array
  * Return: void
  */
-void _puts(char *str)
+void puts_half(char *str)
 {
 	int size = 0, start;
 	
