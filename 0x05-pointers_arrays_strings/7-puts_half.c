@@ -6,12 +6,12 @@
  */
 void _puts(char *str)
 {
-	int size = 0;
+	int size = 0, start;
 	
 	while (str[size])
 		++size;
 
-	int start = size / 2;
+	start = size / 2;
 	
 	while (str[start])
 	{
