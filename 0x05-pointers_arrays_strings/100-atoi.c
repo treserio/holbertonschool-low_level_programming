@@ -6,12 +6,13 @@
  */
 int _atoi(char *n_str)
 {
-	int neg = 1, rtrn = 0;
+	int neg = 1;
+	unsigned int rtrn = 0;
 
 	while (*n_str)
 	{
 		if (*n_str == '-')
-			neg = -1;
+			neg *= -1;
 
 		else if (*n_str >= '0' && *n_str <= '9')
 		{
