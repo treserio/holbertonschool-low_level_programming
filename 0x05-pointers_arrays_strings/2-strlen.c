@@ -2,7 +2,7 @@
 /**
  * _strlen - find the length of a string
  * @ltr: string pointer
- * Return: void
+ * Return: int value of length of the string
  */
 
 int _strlen(char *ltr)
