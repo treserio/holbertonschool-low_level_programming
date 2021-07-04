@@ -5,14 +5,11 @@
  * @end: the last value of the array to print
  * Return: void
  */
-void print_array(int *ar, int *end)
+void print_array(int *ar, int end)
 {
 	int size = 0, start;
 
-	while (ar[size])
-		++size;
-
-	for (start = 0; start < end && start < size;  start++)
+	for (start = 0; start < end && start < (sizeof(ar) / sizeof(int));  start++)
 		printf("%d", ar[start]);
 
 	_putchar('\n');
