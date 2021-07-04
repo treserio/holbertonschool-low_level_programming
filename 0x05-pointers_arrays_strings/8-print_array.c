@@ -9,10 +9,14 @@
  */
 void print_array(int *ar, int end)
 {
-	int size = 0, start;
+	int start, ar_size = sizeof(*ar);
 
-	for (start = 0; start < end && start < (sizeof(ar) / sizeof(int));  start++)
+	for (start = 0; start < end && start <= ar_size;  start++)
+	{
 		printf("%d", ar[start]);
+		if (start < end - 1 && start < ar_size)
+			printf(", ");
+	}
 
-	_putchar('\n');
+	printf("\n");
 }
