@@ -9,8 +9,7 @@
  */
 void print_array(int *ar, int end)
 {
-	int start;
-	unsigned int ar_size = sizeof(*ar);
+	int start, ar_size = sizeof(*ar);
 
 	for (start = 0; start < end && start <= ar_size;  start++)
 	{
