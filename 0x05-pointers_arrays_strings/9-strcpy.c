@@ -12,12 +12,13 @@ char *_strcpy(char *dest, char *src)
 	char *start = dest;
 
 	/* loop through and copy chars from string to dest */
-	while (src++)
+	while (*src)
 	{
 		*dest = *src;
 		++dest;
+		++src;
 	}
-	++dest;
+
 	*dest = '\0';
 
 	return (start);
