@@ -1,55 +1,62 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <time.h>
+/**
+ * main - keygenerator for 101-crackme
+ * 
+ * return: a keyvalue string
+ */
 
 int main(void)
 {
-	char holder[89], current_char;
-	char *set = holder;
-	int target = 2772, char_val;
+    char holder[87], current_char;
+    char *set = holder;
+    int target = 2772;
 
-	holder[0] = '2';
-	holder[1] = ' ';
-	set += 2;
+	/* set the seed for rand */
+	srand(time(0));
 
-	while (target > 0)
-	{
-		char_val = rand() % 90 + 32;
+    while (target > 0)
+    {
+        current_char = rand() % 74 + 48;
+        /* 48-57, 65-90, 97-122 */
+        if (current_char >= 48 && current_char <= 57)
+        {
+        }
+        else if (current_char >= 65 && current_char <= 90)
+        {
+        }
+        else if (current_char >= 97 && current_char <= 122)
+        {
+        }
+        else
+        {
+            continue;
+        }
 
-		/* remove special bash chars */
-		switch (char_val)
-		{
-		case 33:
-			continue;
-		case 39:
-			continue;
-		case 40:
-			continue;
-		case 41:
-			continue;
-		case 42:
-			continue;
-		case 59:
-			continue;
-		case 92:
-			continue;
-		}
-
-		if (target % char_val > 0)
-		{
-			current_char = char_val;
-			*set = current_char;
-			set++;
-			target -= char_val;
-		}
-		else
-		{
-			*set = target;
-			set++;
-			target -= target;
-		}
-	}
-	*set = '\0';
-	printf("%s", holder);
-	return (0);
+        if (target - current_char > 32)
+        {
+            *set = current_char;
+            set++;
+            target -= current_char;
+        }
+        else
+        {
+			if (target > 127)
+			{
+				*set = 32;
+				target -= 32;
+				set++;
+			}
+			else
+			{
+            *set = target;
+            set++;
+            target -= target;
+			}
+        }
+    }
+    *set = '\0';
+    printf("%s", holder);
+    return (0);
 }
