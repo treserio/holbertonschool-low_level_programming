@@ -6,7 +6,7 @@ int main(void)
 
 {  
   char holder[89];
-  char *start = &holder, *set = &holder;
+  char *start = holder, *set = holder;
   char current_char;
   
   int target = 2772, char_val;
@@ -19,7 +19,7 @@ int main(void)
   {
     char_val = rand() % 95 + 32;
     
-	if (char_val = 92)
+	if (char_val == 92)
 		continue;
 
     if (target % char_val > 0)
