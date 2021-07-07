@@ -11,7 +11,7 @@ int main(void)
 {
     char holder[87], current_char;
     char *set = holder;
-    int target = 2772;
+    int target = 2772, sub;
 
 	/* set the seed for rand */
 	srand(time(0));
@@ -34,26 +34,35 @@ int main(void)
             continue;
         }
 
-        if (target - current_char > 32)
+		sub = target - current_char;
+
+        if (sub > 64)
         {
             *set = current_char;
             set++;
             target -= current_char;
         }
+        else if (sub >= 48 && sub <= 57)
+        {
+			*set = current_char;
+			set++;
+			*set = target - current_char;
+        }
+        else if (sub >= 65 && sub <= 90)
+        {
+			*set = current_char;
+			set++;
+			*set = target - current_char;
+        }
+        else if (sub >= 97 && sub <= 122)
+        {
+			*set = current_char;
+			set++;
+			*set = target - current_char;			
+        }
         else
         {
-			if (target > 127)
-			{
-				*set = 32;
-				target -= 32;
-				set++;
-			}
-			else
-			{
-            *set = target;
-            set++;
-            target -= target;
-			}
+            continue;
         }
     }
     *set = '\0';
