@@ -46,19 +46,25 @@ int main(void)
         {
 			*set = current_char;
 			set++;
-			*set = target - current_char;
+			target -= current_char;
+			*set = target;
+			target -= target;
         }
         else if (sub >= 65 && sub <= 90)
         {
 			*set = current_char;
 			set++;
-			*set = target - current_char;
+			target -= current_char;
+			*set = target;
+			target -= target;
         }
         else if (sub >= 97 && sub <= 122)
         {
 			*set = current_char;
 			set++;
-			*set = target - current_char;			
+			target -= current_char;
+			*set = target;
+			target -= target;
         }
         else
         {
