@@ -3,7 +3,7 @@
 #include <time.h>
 /**
  * main - keygenerator for 101-crackme
- * 
+ *
  * return: a keyvalue string
  */
 
@@ -36,7 +36,7 @@ int main(void)
 
 		sub = target - current_char;
 
-        if (sub > 64)
+        if (sub > 170)
         {
             *set = current_char;
             set++;
@@ -71,6 +71,7 @@ int main(void)
             continue;
         }
     }
+	set++;
     *set = '\0';
     printf("%s", holder);
     return (0);
