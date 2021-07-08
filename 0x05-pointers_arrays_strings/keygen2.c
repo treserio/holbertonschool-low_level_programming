@@ -10,7 +10,7 @@
 
 int main(void)
 {
-    char ch_list[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789,.-#'?@_=+/`~";
+	char ch_list[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789,.-#'?!";
     int target = 0, i;
     char *rtrn_str = NULL;
 
@@ -24,14 +24,16 @@ int main(void)
 
         for (i=0; target < 2772; i++)
         {
-            int chr = rand() % strlen(ch_list);
+            int chr = rand() % strlen(ch_list)-1;
             rtrn_str[i] = ch_list[chr];
             target += ch_list[chr];
             rtrn_str = realloc(rtrn_str, (i+2) * sizeof(char));
+			printf("%c\n", ch_list[chr]);
+			printf("%s\n", rtrn_str);
         }
         free(rtrn_str);
     }
-    printf("%s", rtrn_str);
-    
+		printf("%s", rtrn_str);
+
     return(0);
 }
