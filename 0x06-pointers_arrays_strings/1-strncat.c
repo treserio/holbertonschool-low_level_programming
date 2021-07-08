@@ -1,13 +1,13 @@
 #include "holberton.h"
 #include <stdlib.h>
 /**
- * _strcat - add a string to a string
+ * _strncat - add a string to a string
  * @dest: place src string at end of dest str
  * @src: string to be copied
- * @end: 
+ * @end: the value to stop at in the src str
  * Return: pointer to the destination
  */
-char *_strcat(char *dest, char *src, int end)
+char *_strncat(char *dest, char *src, int end)
 {
 	int str_sz = 0, cnt = 0;
 
