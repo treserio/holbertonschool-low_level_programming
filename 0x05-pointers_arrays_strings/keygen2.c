@@ -29,8 +29,7 @@ int main(void)
             rtrn_str[i] = ch_list[chr];
             target += ch_list[chr];
             rtrn_str = realloc(rtrn_str, (i+2) * sizeof(char));
-			printf("%c\n", ch_list[chr]);
-			printf("%s\n", rtrn_str);
+			printf("c=%c - rtrn_str=%s - i=%d - target=%d", ch_list[chr], rtrn_str, i, target );
         }
         free(rtrn_str);
     }
