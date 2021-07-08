@@ -1,5 +1,4 @@
 #include "holberton.h"
-#include <stdlib.h>
 /**
  * _strncpy - add a string to a string
  * @dest: place src string at end of dest str
