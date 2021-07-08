@@ -1,12 +1,12 @@
 #include "holberton.h"
 #include <stdlib.h>
 /**
- * _strcpy - copy string by pntr and return pntr
- * @dest: place copy here
+ * _strcat - add a string to a string
+ * @dest: place src string at end of dest str
  * @src: string to be copied
  * Return: pointer to the destination
  */
-char *_strcpy(char *dest, char *src)
+char *_strcat(char *dest, char *src)
 {
 	int str_sz = 0;
 
@@ -18,7 +18,7 @@ char *_strcpy(char *dest, char *src)
 	{
 		dest[str_sz] = *src;
 		++str_sz;
-		++src
+		++src;
 	}
 	dest[str_sz] = '\0';
 	return (dest);
