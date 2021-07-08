@@ -1,7 +1,7 @@
 #include "holberton.h"
 /**
- * _strncpy - add a string to a string
- * @dest: place src string at end of dest str
+ * _strncpy - replace dest with src string till end value
+ * @dest: storage string for src
  * @src: string to be copied
  * @end: the value to stop at in the src str
  * Return: pointer to the destination
