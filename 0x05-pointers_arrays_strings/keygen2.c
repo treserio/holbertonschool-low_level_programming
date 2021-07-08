@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <time.h>
+#include <string.h>
 /**
  * main - keygenerator for 101-crackme
  *
@@ -9,57 +10,28 @@
 
 int main(void)
 {
-    char holder[87], current_char, invalid[] = "'!()\"><";
-    char *set = holder;
-    int target = 2772, i;
+    char ch_list[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789,.-#'?@_=+/`~";
+    int target = 0, i;
+    char *rtrn_str = NULL;
 
-
-    /* set the seed for rand */
+    /* seed for rand */
     srand(time(0));
 
-    while (target > 0)
+    while (target != 2772)
     {
-        current_char = rand() % 94 + 32;
-        
-        i=0;
+        target = 0;
+        rtrn_str = malloc(sizeof(char));
 
-        while (invalid[i])
+        for (i=0; target < 2772; i++)
         {
-            if (current_char == invalid[i])
-            {
-                current_char++;
-                i=0;
-            }
-            i++;
+            int chr = rand() % strlen(ch_list);
+            rtrn_str[i] = ch_list[chr];
+            target += ch_list[chr];
+            rtrn_str = realloc(rtrn_str, (i+2) * sizeof(char));
         }
-        if (target - current_char > 126)
-        {
-            *set = current_char;
-            set++;
-            target -= current_char;
-        }
-        else
-        {
-          if (target - current_char > 32)
-          {
-            *set = current_char;
-            set++;
-            target -= current_char;            
-            *set = target;
-            target -= target;
-            set++;
-          }
-          else
-          {
-            *set = 32;
-            target -= 32;
-            *set = target;
-            target -= target;
-            set++;
-          }
-        }
+        free(rtrn_str);
     }
-    *set = '\0';
-    printf("%s", holder);
-    return (0);
+    printf("%s", rtrn_str);
+    
+    return(0);
 }
