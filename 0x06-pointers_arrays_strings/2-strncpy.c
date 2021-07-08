@@ -22,6 +22,13 @@ char *_strncat(char *dest, char *src, int end)
 		++src;
 		++cnt;
 	}
+
+	while (*dest && cnt < end)
+	{
+		*dest = '\0';
+		++dest;
+		++cnt;
+	}
 	*dest = '\0';
 	return (dest);
 }
