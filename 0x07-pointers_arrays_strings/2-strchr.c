@@ -1,5 +1,5 @@
 #include "holberton.h"
-#include <stddef.h>
+
 /**
  * _strchr - find the length of a string
  * @heystack: string to look for char in
@@ -9,7 +9,7 @@
 
 char *_strchr(char *heystack, char needle)
 {
-	char *loc = NULL;
+	char *loc = 0;
 
 	while (*heystack)
 	{
