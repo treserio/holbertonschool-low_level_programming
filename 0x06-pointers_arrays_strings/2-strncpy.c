@@ -8,11 +8,7 @@
  */
 char *_strncpy(char *dest, char *src, int end)
 {
-	int str_sz = 0, cnt = 0;
-
-	/* find the length of dest */
-	while (dest[str_sz])
-		++str_sz;
+	int cnt = 0;
 
 	while (*src && cnt < end)
 	{
