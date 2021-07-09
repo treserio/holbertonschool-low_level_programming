@@ -7,7 +7,7 @@
  */
 char *cap_string(char *chr)
 {
-	char *invalid = " \n\t,;.!?(){}";
+	char *invalid = "\n\t ,;.!?(){}";
 	char *start = chr;
 	int word = 0;
 
@@ -19,7 +19,8 @@ char *cap_string(char *chr)
 				*chr -= 32;
 			word = 1;
 		}
-		if (strstr(invalid, chr) != 0)
+		char chkr[2] = *chr;
+		if (strstr(invalid, chkr) != 0)
 			word = 0;
 
 		++chr;
