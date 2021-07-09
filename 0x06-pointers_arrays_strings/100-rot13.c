@@ -1,18 +1,18 @@
 #include "holberton.h"
 /**
- * rot13 - transform upper & lower [ABCDEFGHIJKLM] <-> [NOPQRSTUVWXYZ] in a string
+ * rot13 - transform upper & lower [ABCDEFGHIJKLM] <-> [NOPQRSTUVWXYZ] in a str
  * @code: pointer to string array to modify
  * Return: the modified string
  */
 char *rot13(char *code)
 {
-	int i, test;
-	char normy[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmopqrstuvwxyz";
+	int i = 0, test;
+	char normy[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 	char rot13y[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
 
 	while (code[i])
 	{
-		for (test = 0; normy[test]; ++test)
+		for (test = 0; test < 52; ++test)
 		{
 			if (code[i] == normy[test])
 			{
@@ -20,7 +20,7 @@ char *rot13(char *code)
 				break;
 			}
 		}
-		++i;
+		i++;
 	}
 	return (code);
 }
