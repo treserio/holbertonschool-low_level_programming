@@ -9,6 +9,7 @@ char *cap_string(char *chr)
 {
 	char *invalid = "\n\t ,;.!?(){}";
 	char *start = chr;
+	char chkr[2];
 	int word = 0;
 
 	while (*chr)
@@ -19,7 +20,8 @@ char *cap_string(char *chr)
 				*chr -= 32;
 			word = 1;
 		}
-		char chkr[2] = *chr;
+		chkr[0] = *chr;
+		chkr[1] = '\0';
 		if (strstr(invalid, chkr) != 0)
 			word = 0;
 
