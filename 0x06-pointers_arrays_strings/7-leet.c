@@ -1,24 +1,24 @@
 #include "holberton.h"
 /**
- * _strcmp - compare 2 strings
- * @s1: first string to compare
- * @s2: second string to compare
- * Return: index of deviant char in the strings or zero if match
+ * leet - convert [AEOTL] & [aeotl] to [43071] respectively
+ * @leet_me: pointer to string array to modify
+ * Return: the modified string
  */
 char *leet(char *leet_me)
 {
 	int i, test;
-	char l33t[] = "43071";
 	char NORMY[] = "AEOTL";
 	char normy[] = "aeotl";
+	char l33t[] = "43071";
 
-	for (i = 0; leet_me[i]; ++i)
+	while (leet_me[i])
 	{
-		for (test = 0; l33t[test] != '\0'; ++test)
+		for (test = 0; test < 5; ++test)
 		{
-			if (*leet_me == NORMY[test] || *leet_me == normy[test])
-				*leet_me = l33t[test];
+			if (leet_me[i] == NORMY[test] || leet_me[i] == normy[test])
+				leet_me[i] = l33t[test];
 		}
+		++i;
 	}
 
 	return (leet_me);
