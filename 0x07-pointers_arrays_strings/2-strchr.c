@@ -8,16 +8,11 @@
 
 char *_strchr(char *heystack, char needle)
 {
-	char *loc = '\0';
-
-	while (*heystack)
+	while (*heystack != needle)
 	{
-		if (*heystack == needle)
-		{
-			loc = heystack;
-			break;
-		}
+		if (*heystack == '\0')
+			return (NULL);
 		++heystack;
 	}
-	return (loc);
+	return (heystack);
 }

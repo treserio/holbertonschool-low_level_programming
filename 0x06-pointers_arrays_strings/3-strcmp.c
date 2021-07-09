@@ -3,7 +3,7 @@
  * _strcmp - compare 2 strings
  * @s1: first string to compare
  * @s2: second string to compare
- * Return: index of deviant char in the strings or zero if match
+ * Return: linguistic difference in the deviant char, or zero if match
  */
 int _strcmp(char *s1, char *s2)
 {
