@@ -6,17 +6,19 @@
  * Return: int value of length of the string
  */
 
-unsigned int _strspn(char *str, char *vals);
+unsigned int _strspn(char *str, char *vals)
 {
-	int cnt = 0, i;
+	unsigned int cnt = 0, i;
 
 	while(*str)
 	{
 		for (i = 0; vals[i]; ++i)
 		{
 			if (*str == vals[i])
-				++cnt
+			{
+				++cnt;
 				break;
+			}
 		}
 		++str;
 	}
