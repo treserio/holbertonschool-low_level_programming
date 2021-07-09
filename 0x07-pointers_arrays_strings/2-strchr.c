@@ -17,7 +17,7 @@ char *_strchr(char *heystack, char needle)
 		++heystack;
 	}
 	if (needle == 0)
-		return (heystack + 1);
+		return (heystack);
 
 	return (0);
 }
