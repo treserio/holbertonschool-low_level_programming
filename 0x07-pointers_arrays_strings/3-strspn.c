@@ -9,18 +9,16 @@
 unsigned int _strspn(char *str, char *vals)
 {
 	unsigned int cnt = 0, i;
+	char hldr[2];
 
-	while(*str)
+	hldr[0] = *str;
+	hldr[1] = '\0';
+
+	while(strstr(vals, hldr))
 	{
-		for (i = 0; vals[i]; ++i)
-		{
-			if (*str == vals[i])
-			{
-				++cnt;
-				break;
-			}
-		}
+		++cnt;
 		++str;
+		hldr[0] = *str;
 	}
 	return (cnt);
 }
