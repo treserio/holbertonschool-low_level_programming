@@ -8,7 +8,7 @@
 
 unsigned int _strspn(char *str, char *vals)
 {
-	unsigned int cnt = 0, i;
+	unsigned int cnt = 0;
 	char hldr[2];
 
 	hldr[0] = *str;
