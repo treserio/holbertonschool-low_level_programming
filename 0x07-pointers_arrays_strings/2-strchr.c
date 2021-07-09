@@ -6,9 +6,9 @@
  * Return: int value of length of the string
  */
 
-char *_strchr(char *heystack, char needle);
+char *_strchr(char *heystack, char needle)
 {
-	char * loc = NULL;
+	char *loc = '\0';
 
 	while (*heystack)
 	{
