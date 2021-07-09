@@ -8,9 +8,9 @@ char *string_toupper(char *chr)
 {
 	char *start = chr;
 
-	while(*chr)
+	while (*chr)
 	{
-		if(*chr >= 'a' && *chr <= 'z')
+		if (*chr >= 'a' && *chr <= 'z')
 			*chr -= 32;
 		++chr;
 	}
