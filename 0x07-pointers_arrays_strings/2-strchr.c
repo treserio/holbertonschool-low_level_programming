@@ -9,16 +9,15 @@
 
 char *_strchr(char *heystack, char needle)
 {
-	int loc = 0;
-
-	while (heystack[loc])
+	while (*heystack)
 	{
-		if (heystack[loc] == needle)
-			return (heystack + loc);
-		++loc;
+		if (*heystack == needle)
+			return (heystack);
+
+		++heystack;
 	}
 	if (needle == 0)
-		return (heystack + loc);
-		
+		return (heystack + 1);
+
 	return (0);
 }
