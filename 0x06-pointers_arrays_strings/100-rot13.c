@@ -12,7 +12,7 @@ char *rot13(char *code)
 
 	while (code[i])
 	{
-		for (test = 0; test < 52; ++test)
+		for (test = 0; normy[test] != '\0'; ++test)
 		{
 			if (code[i] == normy[test])
 			{
