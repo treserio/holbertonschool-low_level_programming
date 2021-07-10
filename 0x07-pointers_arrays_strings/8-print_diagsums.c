@@ -1,10 +1,10 @@
 #include "holberton.h"
 #include <stdio.h>
 /**
- * print_diagsums - returns the sumation of bothe diagonals of an array
- * @arr: pointer to two dimensional array of size sz
- * @needle: substr to locate
- * Return: Pointer to beginning of substr or null
+ * print_diagsums - prints the summation of Diagonal right, diag left values
+ * @ar: pointer to two dimensional array of size sz
+ * @sz: size of two dimensional array
+ * Return: void
  */
 void print_diagsums(int *ar, int sz)
 {
@@ -13,9 +13,9 @@ void print_diagsums(int *ar, int sz)
 
 	for (col = 0; col < sz; ++col)
 	{
-		dr += a[col];
-		dl += a[sz-col-1];
-		a += sz;
+		dr += ar[col];
+		dl += ar[sz - col - 1];
+		ar += sz;
 	}
-	printf("%u, %u", dr, dl);
+	printf("%u, %u\n", dr, dl);
 }
