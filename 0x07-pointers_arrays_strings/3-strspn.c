@@ -10,19 +10,21 @@
 unsigned int _strspn(char *str, char *vals)
 {
 	unsigned int cnt = 0;
-	char hldr[2];
+	int i = 0;
 
-	hldr[0] = *str;
-	hldr[1] = '\0';
-
-	while (strstr(vals, hldr))
+	while (*str)
 	{
-		++cnt;
-		++str;
-		if (*str)
-			hldr[0] = *str;
-		else
-			break;
+		for (i = 0; vals[i] != 0; i++)
+		{
+			if (*str == vals[i])
+			{
+				cnt++;
+				break;
+			}
+			else if (!vals[i + 1])
+				return (cnt);
+		}
+		str++;
 	}
 	return (cnt);
 }
