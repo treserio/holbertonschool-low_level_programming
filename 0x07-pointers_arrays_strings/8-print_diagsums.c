@@ -1,4 +1,5 @@
 #include "holberton.h"
+#include <stdio.h>
 /**
  * print_diagsums - returns the sumation of bothe diagonals of an array
  * @arr: pointer to two dimensional array of size sz
@@ -7,16 +8,20 @@
  */
 void print_diagsums(int *ar, int sz)
 {
-	unsigned int row, col, dr, dl;
+	unsigned int row, col, dr = 0, dl = 0;
 
 	for (row = 0; row < sz; ++row)
 	{
 		for (col = 0; col < sz; ++col)
 		{
 			if (row == col)
+			{
 				dr += ar[row][col];
+			}
 			else if (col == sz - row)
+			{
 				dl += ar[row][col];
+			}
 		}
 	}
 	printf("%u, %u");
