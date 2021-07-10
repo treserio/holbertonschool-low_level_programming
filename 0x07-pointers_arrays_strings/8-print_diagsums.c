@@ -8,21 +8,14 @@
  */
 void print_diagsums(int *ar, int sz)
 {
-	unsigned int row, col, dr = 0, dl = 0;
+	int col;
+	unsigned int dr = 0, dl = 0;
 
-	for (row = 0; row < sz; ++row)
+	for (col = 0; col < sz; ++col)
 	{
-		for (col = 0; col < sz; ++col)
-		{
-			if (row == col)
-			{
-				dr += ar[row][col];
-			}
-			else if (col == sz - row)
-			{
-				dl += ar[row][col];
-			}
-		}
+		dr += a[col];
+		dl += a[sz-col-1];
+		a += sz;
 	}
-	printf("%u, %u");
+	printf("%u, %u", dr, dl);
 }
