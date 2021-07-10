@@ -1,11 +1,10 @@
 #include "holberton.h"
 /**
- * _strstr - returns pointer to first occurance of substring needle in haystack
+ * print_chessboard - prints out a 8x8 board of chars
  * @arr: str to search
- * @needle: substr to locate
- * Return: Pointer to beginning of substr or null
+ * Return: void
  */
-void print_chessboard(char (*arr)[8]);
+void print_chessboard(char (*arr)[8])
 {
 	int row, col;
 
