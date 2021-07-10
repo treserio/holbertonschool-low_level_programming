@@ -9,7 +9,7 @@
 void print_diagsums(int *ar, int sz)
 {
 	int col;
-	unsigned int dr = 0, dl = 0;
+	int dr = 0, dl = 0;
 
 	for (col = 0; col < sz; ++col)
 	{
