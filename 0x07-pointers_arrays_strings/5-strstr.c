@@ -1,5 +1,5 @@
 #include "holberton.h"
-
+#include <stddef.h>
 /**
  * _strstr - returns pointer to first occurance of substring needle in haystack
  * @haystack: str to search
@@ -12,7 +12,7 @@ char *_strstr(char *haystack, char *needle)
 
 	while (*haystack)
 	{
-		for (i=0; haystack[i] == needle[i]; ++i)
+		for (i = 0; haystack[i] == needle[i]; ++i)
 		{
 			if (!needle[i + 1])
 				return (haystack);
