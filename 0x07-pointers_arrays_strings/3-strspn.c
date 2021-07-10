@@ -1,5 +1,5 @@
 #include "holberton.h"
-#include "string.h"
+#include <string.h>
 /**
  * _strspn - find how long a string is a part of a substring
  * @str: string pointer to check
@@ -19,7 +19,10 @@ unsigned int _strspn(char *str, char *vals)
 	{
 		++cnt;
 		++str;
-		hldr[0] = *str;
+		if (*str)
+			hldr[0] = *str;
+		else
+			break;
 	}
 	return (cnt);
 }
