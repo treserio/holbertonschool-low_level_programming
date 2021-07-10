@@ -17,5 +17,5 @@ void print_diagsums(int *ar, int sz)
 		dl += ar[sz - col - 1];
 		ar += sz;
 	}
-	printf("%u, %u\n", dr, dl);
+	printf("%d, %d\n", dr, dl);
 }
