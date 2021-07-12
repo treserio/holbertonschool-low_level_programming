@@ -9,8 +9,8 @@ int _pow_recursion(int num, int exp)
 {
 	if (exp < 0)
 		return (-1);
-	if (exp > 2);
-		return (num * pow_recursion(num, exp - 1));
+	if (exp > 2)
+		return (num * _pow_recursion(num, exp - 1));
 
 	return (num);
 }
