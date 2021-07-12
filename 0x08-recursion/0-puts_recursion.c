@@ -6,7 +6,7 @@
  */
 void _puts_recursion(char *spntr)
 {
-	if (! *spntr)
+	if (!*spntr)
 		_putchar('\n');
 	else
 	{
