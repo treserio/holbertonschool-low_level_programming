@@ -4,9 +4,9 @@
  * @spntr: pointer to the string we're wanting printed
  * Return: void
  */
-void _puts_rev_recursion(char *spntr)
+void _print_rev_recursion(char *spntr)
 {
-	if (!*spntr)
+	if (*spntr)
 		_print_rev_recursion(++spntr);
 
 	--spntr;
