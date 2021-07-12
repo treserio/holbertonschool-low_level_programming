@@ -18,4 +18,6 @@ int _sqrt_recursion(int num)
 		return (7 * _sqrt_recursion(num / 7));
 	else if (num % 11 == 0)
 		return (11 * _sqrt_recursion(num / 11));
+	else
+		return (-1);
 }
