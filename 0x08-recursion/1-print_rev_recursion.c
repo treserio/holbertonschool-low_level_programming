@@ -6,9 +6,8 @@
  */
 void _print_rev_recursion(char *spntr)
 {
-	if (*spntr)
+	if (*spntr == '\0')
 		_print_rev_recursion(++spntr);
-
 	--spntr;
 	_putchar(*spntr);
 }
