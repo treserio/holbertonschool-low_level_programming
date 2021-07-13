@@ -1,5 +1,5 @@
 #include "holberton.h"
-is_prime_hlpr(int, int);
+int is_prime_hlpr(int, int);
 /**
  * is_prime_number - tells if a number is prime or not
  * @num: the number to test
