@@ -8,12 +8,23 @@
  */
 int _sqrt_recursion(int num)
 {
-	srand(time());
+	int root = 0;
 
-	int monkey = rand() % (num / 2)
+	if (num == 1)
+		return (1);
+	else if (num % 11 == 0)
+		root = 11 * (_sqrt_recursion(num / 11));
+	else if (num % 7 == 0)
+		root = 7 * (_sqrt_recursion(num / 7));
+	else if (num % 5 == 0)
+		root = 5 * (_sqrt_recursion(num / 5));
+	else if (num % 3 == 0)
+		root = 3 * (_sqrt_recursion((num / 3));
+	else if (num % 2 == 0)
+		root = 2 * (_sqrt_recursion((num / 2));
 
-	if num / monkey = monkey;
-		return (monkey);
-
-	return (0 + _sqrt_recursion(num));
+	if root * root = num;
+		return (root);
+	else
+		return (-1);
 }
