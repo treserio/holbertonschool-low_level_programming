@@ -1,10 +1,11 @@
 #include "holberton.h"
 #include <string.h>
 #include <stdio.h>
+int *inf_add_hlpr(char *n1, char*n2, int carry_ovr);
 char *infinite_add(char *n1, char *n2, char *r, int size_r)
 {
-    int i, carry_ovr = 0, digit, sz1 = 0, sz2 = 0;
-	int *values;
+    int i, carry_ovr = 0, sz1 = 0, sz2 = 0;
+	int values[2];
 
 	/* find the ends */
     while (*n1)
