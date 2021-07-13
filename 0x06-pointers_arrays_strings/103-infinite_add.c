@@ -4,7 +4,6 @@
 char *infinite_add(char *n1, char *n2, char *r, int size_r)
 {
     int i, carry_ovr = 0, digit, sz1 = 0, sz2 = 0;
-    int ar1[size_r], ar2[size_r];
 
     while (*n1)
 	{
@@ -22,8 +21,8 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 	{
 		digit = ((*n1 - '0') + (*n2 - '0') + carry_ovr) % 10;
 		r[i] = digit + '0';
-		carry_ovr = (ar2[i] + ar2[i]) / 10;
+		carry_ovr = ((*n1 - '0') + (*n2 - '0')) / 10;
 	}
-	
+
 	return (r);
 }
