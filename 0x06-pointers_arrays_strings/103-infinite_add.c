@@ -45,8 +45,8 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 	*rev_n1 = '\0';
 	*rev_n2 = '\0';
 
-	rev_n1 = rev_n1 - (sz1+1);
-	rev_n2 = rev_n2 - (sz2+1);
+	rev_n1 = rev_n1 - (sz1);
+	rev_n2 = rev_n2 - (sz2);
 
 	/* walk forward through rev strings adding values */
 	for (i = 0; i < size_r; ++i, ++rev_n1, ++rev_n2)
@@ -79,13 +79,23 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 			r[i] = (((*rev_n2-'0')+carry_ovr) % 10) + '0';
 			carry_ovr = ((*rev_n2-'0')+carry_ovr) / 10;
 		}
+		/* check for carry_ovr */
+		else if (carry_ovr == 1)
+		{
+			r[i] = carry_ovr;
+			carry_ovr = 0;
+		}
 		/* else fill buffer with null */
 		else
 			r[i] = '\0';
 	}
-	
-	/* free up the allocation */
+
+
+	rev_n1 -= size_r;
+	rev_n2 -= size_r;
+
+	/* free up the allocation, keeps failing
 	free(rev_n1);
-	free(rev_n2);
+	free(rev_n2); */
 	return (r);
 }
