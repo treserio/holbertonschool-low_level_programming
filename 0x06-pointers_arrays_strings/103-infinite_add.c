@@ -3,28 +3,27 @@
 #include <stdio.h>
 char *infinite_add(char *n1, char *n2, char *r, int size_r)
 {
-	int i, carry_o = 0, digit;
-	int ar1[size_r], ar2[size_r];
+    int i, carry_ovr = 0, digit, sz1 = 0, sz2 = 0;
+    int ar1[size_r], ar2[size_r];
 
-	for (i = 0; i < size_r; ++i)
+    while (*n1)
 	{
-		ar1[i] = n1[i] - '0';
-		ar2[i] = n2[i] - '0';
+        ++sz1;
+		++n1;
+	}
+    while (*n2)
+	{
+        ++sz2;
+		++n2;
 	}
 
-	for (i = size_r - 1; i > 0; --i)
+	/* reverse the val and add to buffer */
+	for (i = 0; i < size_r && i < sz1 && i < sz2; ++i, --n1, --n2)
 	{
-		if (i = size_r -1)
-			r[i] = '\0';
-		else
-		{
-			digit = (ar1[i] + ar2[i] + carry_o % 10);
-
-			r[i] = digit + "0";
-
-			carry_o = (ar2[i] + ar2[i]) / 10;
-		}
+		digit = ((*n1 - '0') + (*n2 - '0') + carry_ovr) % 10;
+		r[i] = digit + '0';
+		carry_ovr = (ar2[i] + ar2[i]) / 10;
 	}
-
+	
 	return (r);
 }
