@@ -52,7 +52,12 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 	for (i = 0; i < size_r; ++i, ++rev_n1, ++rev_n2)
 	{
 		/* check if we've reached the end of a string before */
-		if (*rev_n1 == '\0')
+		if (*rev_n1 == '\0' && *rev_n2 == '\0')
+		{
+			end1 = 1;
+			end2 = 1;
+		}
+		else if (*rev_n1 == '\0')
 			end1 = 1;
 		else if (*rev_n2 == '\0')
 			end2 = 1;
