@@ -20,7 +20,7 @@ int is_prime_number(int num)
  */
 int is_prime_hlpr(int num, int fact)
 {
-	if (num % fact)
+	if (num % fact == 0)
 		return (0);
 	else if (fact > num)
 		return (1);
