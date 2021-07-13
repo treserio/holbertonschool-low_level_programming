@@ -15,7 +15,9 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
         ++sz2;
 		++n2;
 	}
-
+	--n1;
+	--n2;
+	printf("%c-%c\n\n", *n1, *n2);
 	/* reverse the val and add to buffer */
 	for (i = 0; i < size_r && i < sz1 && i < sz2; ++i, --n1, --n2)
 	{
