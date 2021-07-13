@@ -27,23 +27,20 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 		/* if both n1 and n2 in range */
 		if (*n1 >= '0' && *n2 >= '0' && *n1 <= '9' && *n2 <= '9')
 		{
-			values = inf_add_hlpr(n1, n2, carry_ovr);
-			r[i] = *values;
-			carry_ovr = *(values + 1);
+			r[i] = ((*n1 - '0') + (*n2 - '0') + carry_ovr) % 10;
+			carry_ovr = ((*n1 - '0') + (*n2 - '0')) / 10;
 		}
 		/* if *n1 in range and *n2 not */
 		else if (*n1 >= '0' && *n1 <= '9')
 		{
-			values = inf_add_hlpr(n1, '\0', carry_ovr);
-			r[i] = *values;
-			carry_ovr = *(values);
+			r[i] = ((*n1 - '0') + (*n2 - '0') + carry_ovr) % 10;
+			carry_ovr = ((*n1 - '0') + (*n2 - '0')) / 10;
 		}
 		/* if *n2 in range and *n1 not */
 		else if (*n2 >= '0' && *n2 <= '9')
 		{
-			values = inf_add_hlpr('\0', n2, carry_ovr);
-			r[i] = *values;
-			carry_ovr = *(values + 1);
+			r[i] = ((*n1 - '0') + (*n2 - '0') + carry_ovr) % 10;
+			carry_ovr = ((*n1 - '0') + (*n2 - '0')) / 10;
 		}
 		/* else continue? */
 		else
