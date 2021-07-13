@@ -7,7 +7,9 @@ int is_prime_hlpr(int, int);
  */
 int is_prime_number(int num)
 {
-	if (num > 0 && num < 4)
+	if (num == 1)
+		return (0);
+	if (num > 1 && num < 4)
 		return (1);
 	if (num % 2)
 		return (0);
