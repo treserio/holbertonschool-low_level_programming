@@ -33,4 +33,5 @@ int is_pal_hlpr(char *str, char *end)
 		else
 			return (0);
 	}
+	return (1);
 }
