@@ -24,12 +24,13 @@ int is_pal_hlpr(char *str, char *end)
 	int check = 0;
 
 	if (*str)
+	{
 		check =	is_pal_hlpr(str + 1, end - 1);
-	
-	if (check == 0)
-		return (0);
-	else if (*str == *end)
-		return (1);
-	else
-		return (0);
+		if (check == 0)
+			return (0);
+		else if (*str == *end)
+			return (1);
+		else
+			return (0);
+	}
 }
