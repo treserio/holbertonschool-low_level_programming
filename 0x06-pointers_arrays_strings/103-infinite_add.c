@@ -1,6 +1,7 @@
 #include "holberton.h"
 #include <string.h>
 #include <stdio.h>
+#include <stdlib.h>
 int *inf_add_hlpr(char *n1, char *n2, int carry_ovr);
 char *infinite_add(char *n1, char *n2, char *r, int size_r)
 {
@@ -23,8 +24,8 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 	--n2;
 
 	/* allocate the buffer */
-	rev_n1 = (char *) malloc(sz1);
-	rev_n2 = (char *) malloc(sz2);
+	rev_n1 = (char *) malloc(sizeof(char) * (sz1+1));
+	rev_n2 = (char *) malloc(sizeof(char) * (sz2+1));
 
 	/* reverse strings */
 	for (i=sz1; i > 0; --i)
