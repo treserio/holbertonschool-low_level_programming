@@ -7,11 +7,11 @@ int is_prime_hlpr(int, int);
  */
 int is_prime_number(int num)
 {
-	if (num == 1)
+	if (num <= 1)
 		return (0);
 	if (num > 1 && num < 4)
 		return (1);
-	if (num % 2)
+	if (num % 2 == 0)
 		return (0);
 	else
 		return (is_prime_hlpr(num, 3));
