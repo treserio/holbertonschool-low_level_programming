@@ -74,14 +74,12 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 		/* if n1 is still a string but n2 is not */
 		else if (end1 == 0)
 		{
-			printf("%c+ =%d|", *rev_n1, ((*rev_n1-'0')+carry_ovr));
 			rev_r[i] = (((*rev_n1-'0')+carry_ovr) % 10) + '0';
 			carry_ovr = ((*rev_n1-'0')+carry_ovr) / 10;
 		}
 		/* if n2 is still a string but n1 is not */
 		else if (end2 == 0)
 		{
-			printf(" +%c=%d|", *rev_n2, ((*rev_n2-'0')+carry_ovr));
 			rev_r[i] = (((*rev_n2-'0')+carry_ovr) % 10) + '0';
 			carry_ovr = ((*rev_n2-'0')+carry_ovr) / 10;
 		}
@@ -102,12 +100,11 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 		++sz1;
 
 	--sz1;
-	printf("\n%s\n", rev_r);
 	/* reverse the result */
 	for (i = 0; i <= sz1; ++i)
 	{
 		r[i] = rev_r[sz1-i];
-		printf("_%c_", rev_r[sz1-i]);
+/*		printf("_%c_", rev_r[sz1-i]); */
 	}
 
 	++i;
