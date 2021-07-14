@@ -87,7 +87,7 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 		/* check for carry_ovr */
 		else if (carry_ovr == 1)
 		{
-			r[i] = carry_ovr;
+			r[i] = carry_ovr + '0';
 			carry_ovr = 0;
 		}
 		/* else fill buffer with null */
