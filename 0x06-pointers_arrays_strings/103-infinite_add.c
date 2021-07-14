@@ -7,7 +7,7 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 {
     int i, carry_ovr = 0, sz1 = 0, sz2 = 0;
 	int end1 = 0, end2 = 0;
-	char *rev_n1, *rev_n2;
+	char *rev_n1, *rev_n2, *rev_r, temp;
 
 	/* find the ends */
     while (*n1)
@@ -67,34 +67,45 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 		if (end1 == 0 && end2 == 0)
 		{
 			printf("%c+%c=%d|", *rev_n1, *rev_n2, ((*rev_n1-'0')+(*rev_n2-'0')+carry_ovr));
-			r[i] = (((*rev_n1-'0')+(*rev_n2-'0')+carry_ovr) % 10) + '0';
+			rev_r[i] = (((*rev_n1-'0')+(*rev_n2-'0')+carry_ovr) % 10) + '0';
 			carry_ovr = ((*rev_n1-'0')+(*rev_n2-'0')+carry_ovr) / 10;
 		}
 		/* if n1 is still a string but n2 is not */
 		else if (end1 == 0)
 		{
 			printf("%c+ =%d|", *rev_n1, ((*rev_n1-'0')+carry_ovr));
-			r[i] = (((*rev_n1-'0')+carry_ovr) % 10) + '0';
+			rev_r[i] = (((*rev_n1-'0')+carry_ovr) % 10) + '0';
 			carry_ovr = ((*rev_n1-'0')+carry_ovr) / 10;
 		}
 		/* if n2 is still a string but n1 is not */
 		else if (end2 == 0)
 		{
 			printf(" +%c=%d|", *rev_n2, ((*rev_n2-'0')+carry_ovr));
-			r[i] = (((*rev_n2-'0')+carry_ovr) % 10) + '0';
+			rev_r[i] = (((*rev_n2-'0')+carry_ovr) % 10) + '0';
 			carry_ovr = ((*rev_n2-'0')+carry_ovr) / 10;
 		}
 		/* check for carry_ovr */
 		else if (carry_ovr == 1)
 		{
-			r[i] = carry_ovr + '0';
+			rev_r[i] = carry_ovr + '0';
 			carry_ovr = 0;
 		}
 		/* else fill buffer with null */
 		else
-			r[i] = '\0';
+			rev_r[i] = '\0';
+
+		/* check for value exceeding buffer */
+		if (i == size_r-1 && carry_ovr == 1)
+			return(0);
 	}
 
+	/* reverse the result */
+	for (i = 0; i < (size_r / 2); ++i)
+	{
+		temp = rev_r[i];
+		r[i] = rev_r[size_r - 1 - i];
+		r[size_r - 1 - i] = temp;
+	}
 
 	rev_n1 -= size_r;
 	rev_n2 -= size_r;
