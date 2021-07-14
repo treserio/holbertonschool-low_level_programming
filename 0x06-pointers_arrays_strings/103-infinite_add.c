@@ -68,42 +68,42 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 		if (end1 == 0 && end2 == 0)
 		{
 /*			printf("%c+%c=%d|", *rev_n1, *rev_n2, ((*rev_n1-'0')+(*rev_n2-'0')+carry_ovr));*/
-			rev_r[i] = (((*rev_n1-'0')+(*rev_n2-'0')+carry_ovr) % 10) + '0';
+			r[i] = (((*rev_n1-'0')+(*rev_n2-'0')+carry_ovr) % 10) + '0';
 			carry_ovr = ((*rev_n1-'0')+(*rev_n2-'0')+carry_ovr) / 10;
 		}
 		/* if n1 is still a string but n2 is not */
 		else if (end1 == 0)
 		{
-			rev_r[i] = (((*rev_n1-'0')+carry_ovr) % 10) + '0';
+			r[i] = (((*rev_n1-'0')+carry_ovr) % 10) + '0';
 			carry_ovr = ((*rev_n1-'0')+carry_ovr) / 10;
 		}
 		/* if n2 is still a string but n1 is not */
 		else if (end2 == 0)
 		{
-			rev_r[i] = (((*rev_n2-'0')+carry_ovr) % 10) + '0';
+			r[i] = (((*rev_n2-'0')+carry_ovr) % 10) + '0';
 			carry_ovr = ((*rev_n2-'0')+carry_ovr) / 10;
 		}
 		/* check for carry_ovr */
 		else if (carry_ovr == 1)
 		{
-			rev_r[i] = carry_ovr + '0';
+			r[i] = carry_ovr + '0';
 			carry_ovr = 0;
 		}
 		/* else fill buffer with null */
 		else
-			rev_r[i] = '\0';
+			r[i] = '\0';
 
 	}
 	/* find size of result */
 	sz1 = 0;
-	while (rev_r[sz1])
+	while (r[sz1])
 		++sz1;
 
 	--sz1;
 	/* reverse the result */
 	for (i = 0; i <= sz1; ++i)
 	{
-		r[i] = rev_r[sz1-i];
+		rev_r[i] = r[sz1-i];
 /*		printf("_%c_", rev_r[sz1-i]); */
 	}
 
@@ -120,5 +120,5 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 
 	free(rev_n1);
 	free(rev_n2); */
-	return (r);
+	return (rev_r);
 }
