@@ -6,8 +6,8 @@
  * @argv: an array of null-term str representing cmnd-line args
  * Return: zero
  */
-int main (int argc, char *argv[])
+int main(int argc, char *argv[])
 {
-	printf("%s\n", argv[0]);
+	printf("%s\n", argv[argc - 1]);
 	return (0);
 }
