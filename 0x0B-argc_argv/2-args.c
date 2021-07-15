@@ -6,11 +6,11 @@
  * @argv: an array of null-term str representing cmnd-line args
  * Return: zero
  */
-int main (int argc, char *argv[])
+int main(int argc, char *argv[])
 {
-	int i;
+	int i = 0;
 
-	for (i = 0; i < argc; ++i)
+	for (; i < argc; ++i)
 		printf("%s\n", argv[i]);
 
 	return (0);
