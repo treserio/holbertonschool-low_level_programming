@@ -6,7 +6,6 @@
  * @vals: values to comapare string chars against
  * Return: number of chars from string that are a part of vals
  */
-
 unsigned int _strspn(char *str, char *vals)
 {
 	unsigned int cnt = 0;
@@ -14,6 +13,12 @@ unsigned int _strspn(char *str, char *vals)
 
 	hldr[0] = *str;
 	hldr[1] = '\0';
+
+	/* check for NULL str */
+	if (*str == '\0')
+	{
+		return (0);
+	}
 
 	while (strstr(vals, hldr))
 	{
