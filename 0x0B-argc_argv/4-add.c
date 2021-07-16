@@ -1,6 +1,7 @@
 #include "holberton.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <ctype.h>
 /**
  * main - cumulatively add all args
  * @argc: an int value defining the number of arguements passed into argv
@@ -9,20 +10,19 @@
  */
 int main(int argc, char *argv[])
 {
-	int sum;
+	int i, j, sum = 0;
 
-	++argv;
-	while (*argv)
+	for (i = 1; i < argc; ++i)
 	{
-		/* doesn't consider a zezo value input */
-		if ((atoi(*argv) && argc) || **argv == '0')
-			sum += atoi(*argv);
-		else
+		for (j = 0; argv[i][j]; ++j)
 		{
-			printf("Error\n");
-			return (1);
+			if (!isdigit(argv[i][j]))
+			{
+				printf("Error\n");
+				return (1);
+			}
 		}
-		++argv;
+		sum += atoi(argv[i]);
 	}
 	printf("%d\n", sum);
 	return (0);
