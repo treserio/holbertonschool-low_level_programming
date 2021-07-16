@@ -9,13 +9,13 @@
  */
 int main(int argc, char *argv[])
 {
-	int sum, use_argc = argc;
+	int sum;
 
 	++argv;
-	while(*argv)
+	while (*argv)
 	{
 		/* doesn't consider a zezo value input */
-		if (atoi(*argv))
+		if (atoi(*argv) && argc)
 			sum += atoi(*argv);
 		else
 		{
@@ -24,7 +24,6 @@ int main(int argc, char *argv[])
 		}
 		++argv;
 	}
-
-	printf("%d", sum);
+	printf("%d\n", sum);
 	return (0);
 }
