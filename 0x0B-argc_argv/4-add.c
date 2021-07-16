@@ -15,7 +15,7 @@ int main(int argc, char *argv[])
 	while (*argv)
 	{
 		/* doesn't consider a zezo value input */
-		if (atoi(*argv) && argc || **argv == '0')
+		if ((atoi(*argv) && argc) || **argv == '0')
 			sum += atoi(*argv);
 		else
 		{
