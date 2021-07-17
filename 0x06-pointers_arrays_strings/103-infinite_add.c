@@ -1,18 +1,27 @@
+#include "holberton.h"
+/**
+ * infinite_add - add char arrays of values together
+ * @n1: first string array of numbers
+ * @n2: second string array of numbers
+ * @arr: the return buffer for the result
+ * @size_r: the size of the output buffer
+ * Return: the sum of n1 + n2
+ */
+
 char *infinite_add(char *n1, char *n2, char *arr, int size_r)
 {
 	int sz1 = 0, sz2 = 0, i = 0, carry_over = 0;
 
 	/* move pointer to end of strings */
 	while (n1[sz1])
-        ++sz1;		
+		++sz1;
 	while (n2[sz2])
-        ++sz2;
+		++sz2;
 
 	/* reverse iterate back over them and add to buffer */
 	for (i = 0, --sz1, --sz2; (sz1 >= 0 || sz2 >= 0) ; ++i, --sz1, --sz2)
 	{
 		/* if both n1 and n2 are still strings */
-		printf("%d, %d\n", sz1, sz2);
 		if (sz1 >= 0 && sz2 >= 0)
 		{
 			arr[i] = (((n1[sz1] - '0') + (n2[sz2] - '0') + carry_over) % 10) + '0';
@@ -49,7 +58,7 @@ char *infinite_add(char *n1, char *n2, char *arr, int size_r)
 
 	/* end buffer with null char */
 	for (; i <= size_r; i++)
-	{	
+	{
 		arr[i] = '\0';
 	}
 
