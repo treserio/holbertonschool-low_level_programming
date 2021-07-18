@@ -34,10 +34,10 @@ char *infinite_add(char *n1, char *n2, char *arr, int size_r)
 			carry_over = ((n2[sz2] - '0') + carry_over) / 10;
 		}
 	}
-	if (carry_over == 1)
-		arr[i++] = carry_over + '0';
 	if (i > size_r - 1)
 		return (0);
+	if (carry_over == 1)
+		arr[i++] = carry_over + '0';
 	/* reverse the string */
 	carry_over = --i;
 	for (; i > carry_over / 2; --i)
