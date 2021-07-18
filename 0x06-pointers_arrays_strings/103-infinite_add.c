@@ -34,7 +34,7 @@ char *infinite_add(char *n1, char *n2, char *arr, int size_r)
 			carry_over = ((n2[sz2] - '0') + carry_over) / 10;
 		}
 	}
-	if (i > size_r - 1)
+	if (i > size_r - 1 || (i == size_r - 1 && carry_over == 1))
 		return (0);
 	if (carry_over == 1)
 		arr[i++] = carry_over + '0';
