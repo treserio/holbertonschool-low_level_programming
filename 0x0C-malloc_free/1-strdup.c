@@ -1,6 +1,5 @@
 #include "holberton.h"
 #include <stdlib.h>
-#include <stdio.h>
 /**
  * _strdup - create a duplicate array of str
  * @str: the string to copy
@@ -12,14 +11,13 @@ char *_strdup(char *str)
 	unsigned int size = 0;
 	char *arr;
 
+	if (str == NULL)
+		return (NULL);
+
 	/* get size of str */
 	while(str[size])
 		++size;
-	--size;
-
-	if (size == 0 || str == NULL)
-		return (NULL);
-
+	
 	/* allocate memory for cpy buffer */
 	arr = malloc(sizeof(char) * size);
 
