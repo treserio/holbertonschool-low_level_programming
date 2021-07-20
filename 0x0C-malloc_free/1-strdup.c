@@ -3,7 +3,6 @@
 /**
  * _strdup - create a duplicate array of str
  * @str: the string to copy
- * @chr: the character to use in the array
  * Return: pntr to dup, or NULL if str NULL or insufficient mem
  */
 char *_strdup(char *str)
