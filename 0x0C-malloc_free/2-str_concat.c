@@ -20,6 +20,10 @@ char *str_concat(char *s1, char *s2)
 
 	res = malloc(sizeof(char) * (strlen(s1) + strlen(s2) + 1));
 
+	/* check malloc's return */
+	if (res == NULL)
+		return (NULL);
+
 	for (size = 0; *s1; ++size, ++s1)
 	{
 		res[size] = *s1;
