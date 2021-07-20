@@ -18,7 +18,7 @@ char *_strdup(char *str)
 		++size;
 
 	/* allocate memory for cpy buffer */
-	arr = malloc(sizeof(char) * size);
+	arr = malloc(sizeof(char) * size + 1);
 
 	if (arr != NULL)
 	{
