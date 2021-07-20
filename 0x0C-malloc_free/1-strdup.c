@@ -15,9 +15,9 @@ char *_strdup(char *str)
 		return (NULL);
 
 	/* get size of str */
-	while(str[size])
+	while (str[size])
 		++size;
-	
+
 	/* allocate memory for cpy buffer */
 	arr = malloc(sizeof(char) * size);
 
