@@ -20,5 +20,5 @@ char *create_array(unsigned int size, char chr)
 		return (arr);
 	}
 	else
-		return ('\0');
+		return (NULL);
 }
