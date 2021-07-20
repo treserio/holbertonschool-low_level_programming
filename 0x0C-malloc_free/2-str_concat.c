@@ -12,15 +12,13 @@ char *str_concat(char *s1, char *s2)
 	unsigned int size = 0;
 	char *res;
 
-	/* reassign NULL values to "", or return NULL if both are NULL */
-	if (s1 == NULL && s2 == NULL)
-		return (NULL);
-	else if (s1 == NULL)
+	/* reassign NULL values to "" */
+	if (s1 == NULL)
 		s1 = "";
 	else if (s2 == NULL)
 		s2 = "";
 
-	res = malloc(sizeof(char) * (strlen(s1) + strlen(s2) + 2));
+	res = malloc(sizeof(char) * (strlen(s1) + strlen(s2) + 1));
 
 	for (size = 0; *s1; ++size, ++s1)
 	{
