@@ -1,10 +1,10 @@
 #include "holberton.h"
 #include <stdlib.h>
-#include <stdio.h>
 /**
- * _strdup - create a duplicate array of str
- * @str: the string to copy
- * Return: pntr to dup, or NULL if str NULL or insufficient mem
+ * alloc_grid - malloc a grid of int values height * width in dimensions
+ * @width: columns in the grid
+ * @height: rows in the grid
+ * Return: pntr to a pntr for a grid array
  */
 int **alloc_grid(int width, int height)
 {
@@ -12,7 +12,7 @@ int **alloc_grid(int width, int height)
 
 	/* value check */
 	if (width <= 0 || height <= 0)
-		return(NULL);
+		return (NULL);
 
 	/* start with a pntr to a pntr so we can correctly add to it */
 	arr = malloc(sizeof(int *) * height);
@@ -26,8 +26,8 @@ int **alloc_grid(int width, int height)
 		if (arr[row] == NULL)
 		{
 			for (col = 0; col < row; ++col)
-				free (arr[row]);
-			free (arr);
+				free(arr[row]);
+			free(arr);
 			return (NULL);
 		}
 		else
