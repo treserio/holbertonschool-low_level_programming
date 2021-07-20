@@ -17,7 +17,7 @@ char *_strdup(char *str)
 	while (str[size])
 		++size;
 
-	/* allocate memory for cpy buffer */
+	/* allocate memory for cpy buffer, size + 1 for NULL byte */
 	arr = malloc(sizeof(char) * size + 1);
 
 	if (arr != NULL)
