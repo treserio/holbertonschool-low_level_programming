@@ -17,7 +17,7 @@ char *_strdup(char *str)
 		++size;
 	--size;
 
-	if (size == 0 || size == NULL)
+	if (size == 0 || str == NULL)
 		return (NULL);
 
 	/* allocate memory for cpy buffer */
