@@ -12,7 +12,7 @@ char *argstostr(int ac, char **av)
 {
 	unsigned int size = 0, i, j, uac = ac;
 	unsigned long buff = 1;
-	char *res;
+	char *res, *temp;
 
 	res = malloc(buff);
 
@@ -27,9 +27,9 @@ char *argstostr(int ac, char **av)
 
 		/* cumulative malloc value */
 		buff += strlen(av[i])+1;
-		res = realloc(res, buff);
+		temp = realloc(res, buff);
 
-		res[0] = 'T';
+		res = strcat(temp, res);
 
 		printf("%lu/%s ", buff, res);
 
