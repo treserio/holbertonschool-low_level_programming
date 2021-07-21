@@ -8,7 +8,7 @@
  */
 char *argstostr(int ac, char **av)
 {
-	unsigned long long size = 0, i, j;
+	unsigned int size = 0, i, j;
 	char *res;
 
 	res = malloc(sizeof(char));
