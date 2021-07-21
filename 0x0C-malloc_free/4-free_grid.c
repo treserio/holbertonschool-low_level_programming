@@ -1,27 +1,26 @@
 #include "holberton.h"
 #include <stdlib.h>
 /**
- * alloc_grid - malloc a grid of int values height * width in dimensions
- * @width: columns in the grid
- * @height: rows in the grid
- * Return: pntr to a pntr for a grid array
+ * free_grid - malloc a grid of int values height * width in dimensions
+ * @grid: a two dimensional array
+ * @height: the number of rows of grid
+ * Return: void
  */
 void free_grid(int **grid, int height)
 {
 	int row;
 
 	/* check what exists? */
-	if (grid == NULL);
-		return (NULL);
-	if (height == NULL || height == 0)
-		return (NULL);
+	if (grid == NULL)
+		return;
+	if (height == 0)
+		return;
 
 	for (row = height; row > 0; --row)
 	{
 		if (grid[row])
-			free (grid[row]);
+			free(grid[row]);
 	}
 
-	free (grid);
-	return (0);
+	free(grid);
 }
