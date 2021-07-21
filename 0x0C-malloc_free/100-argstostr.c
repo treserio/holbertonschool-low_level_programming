@@ -14,9 +14,18 @@ char *argstostr(int ac, char **av)
 	unsigned long buff = 0;
 	char *res;
 
-	res = malloc(sizeof(char) * buff);
+	res = malloc(buff);
 	if (res == NULL)
 		return (NULL);
+
+	for (i = 0; i < uac; ++i)
+		buff += strlen(av[i]);
+
+	/* add values for new line chars */
+	buff += ac;
+	/* check buff size */
+	printf("%lu", buff);
+	buff = 0;
 
 	if (ac == 0 || av == NULL)
 		return (NULL);
@@ -29,7 +38,7 @@ char *argstostr(int ac, char **av)
 
 		/* cumulative malloc value */
 		buff += strlen(av[i]) + 1;
-		res = realloc(res, sizeof(char) * buff);
+		res = realloc(res, buff);
 
 		for (j = 0; av[i][j]; ++j, ++size)
 			res[size] = av[i][j];
