@@ -12,9 +12,9 @@ char *argstostr(int ac, char **av)
 {
 	unsigned int size = 0, i, j, uac = ac;
 	unsigned long buff = 0;
-	char *res, *temp;
+	char *res;
 
-	res = malloc(buff);
+	res = malloc(sizeof(char) * buff);
 	if (res == NULL)
 		return (NULL);
 
@@ -29,9 +29,7 @@ char *argstostr(int ac, char **av)
 
 		/* cumulative malloc value */
 		buff += strlen(av[i]) + 1;
-		temp = realloc(res, buff);
-		free(res);
-		res = temp;
+		res = realloc(res, sizeof(char) * buff);
 
 		for (j = 0; av[i][j]; ++j, ++size)
 			res[size] = av[i][j];
