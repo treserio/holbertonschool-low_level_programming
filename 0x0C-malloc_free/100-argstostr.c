@@ -11,39 +11,32 @@
 char *argstostr(int ac, char **av)
 {
 	unsigned int size = 0, i, j, uac = ac;
-	unsigned long buff = 1;
-	char *res, *temp;
+	unsigned long buff = 0;
+	char *res;
 
 	res = malloc(buff);
-
-	if (ac == 0)
+	if (res == NULL)
 		return (NULL);
 
-	for(i = 0; i < uac; ++i)
+	if (ac == 0 || av == NULL)
+		return (NULL);
+
+	for (i = 0; i < uac; ++i)
 	{
 		/* reassign NULL values to "" */
 		if (av[i] == NULL)
 			av[i] = "";
 
 		/* cumulative malloc value */
-		buff += strlen(av[i])+1;
-		temp = realloc(res, buff);
+		buff += strlen(av[i]) + 1;
+		res = realloc(res, buff);
 
-		res = strcat(temp, res);
-
-		printf("%lu/%s ", buff, res);
-
-		for(j = 0; av[i][j]; ++j, ++size)
-		{
-			printf("%c, %u | ", av[i][j], size);
+		for (j = 0; av[i][j]; ++j, ++size)
 			res[size] = av[i][j];
-			printf("%s\n", res);
-		}
-		res[++size] = '\n';
-	    printf("%s\n", res);
-	}
 
+		res[size] = '\n';
+		++size;
+	}
 	res[size + 1] = '\0';
-	printf("%s", res);
 	return (res);
 }
