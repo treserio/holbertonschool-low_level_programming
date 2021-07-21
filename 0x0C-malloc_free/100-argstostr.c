@@ -1,5 +1,7 @@
 #include "holberton.h"
 #include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
 /**
  * argstostr - malloc a grid of int values height * width in dimensions
  * @ac: value from argc
@@ -8,26 +10,40 @@
  */
 char *argstostr(int ac, char **av)
 {
-	unsigned int size = 0, i, j;
+	unsigned int size = 0, i, j, uac = ac;
+	unsigned long buff = 1;
 	char *res;
 
-	res = malloc(sizeof(char));
+	res = malloc(buff);
 
-	if (ac == 0 || av == NULL)
+	if (ac == 0)
 		return (NULL);
-	
-	for(i = 0; i < ac; ++i)
+
+	for(i = 0; i < uac; ++i)
 	{
 		/* reassign NULL values to "" */
 		if (av[i] == NULL)
-			av[i] == "";
+			av[i] = "";
 
-		res = realloc(res, sizeof(char) * strlen(av[i]) + 1);
+		/* cumulative malloc value */
+		buff += strlen(av[i])+1;
+		res = realloc(res, buff);
+
+		res[0] = 'T';
+
+		printf("%lu/%s ", buff, res);
 
 		for(j = 0; av[i][j]; ++j, ++size)
+		{
+			printf("%c, %u | ", av[i][j], size);
 			res[size] = av[i][j];
+			printf("%s\n", res);
+		}
+		res[++size] = '\n';
+	    printf("%s\n", res);
 	}
 
 	res[size + 1] = '\0';
+	printf("%s", res);
 	return (res);
 }
