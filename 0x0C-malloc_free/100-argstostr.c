@@ -10,42 +10,32 @@
  */
 char *argstostr(int ac, char **av)
 {
-	unsigned int size = 0, i, j, uac = ac;
+	int i;
 	unsigned long buff = 0;
 	char *res;
 
-	res = malloc(buff);
-	if (res == NULL)
-		return (NULL);
-
-	for (i = 0; i < uac; ++i)
-		buff += strlen(av[i]);
-
-	/* add values for new line chars */
-	buff += ac;
-	/* check buff size */
-	printf("%lu", buff);
-	buff = 0;
-
+	/* initial input check */
 	if (ac == 0 || av == NULL)
 		return (NULL);
 
-	for (i = 0; i < uac; ++i)
+	/* find the total size of all argvs */
+	for (i = 0; i < ac; ++i)
+		buff += strlen(av[i]);
+	/* add values for new line chars */
+	buff += ac;
+
+	/* allocate total buffer */
+	res = malloc(buff);
+	/* check for init of buffer */
+	if (res == NULL)
+		return (NULL);
+
+	/* strcat values to buffer, then \n */
+	for (i = 0; i < ac; ++i)
 	{
-		/* reassign NULL values to "" */
-		if (av[i] == NULL)
-			av[i] = "";
-
-		/* cumulative malloc value */
-		buff += strlen(av[i]) + 1;
-		res = realloc(res, buff);
-
-		for (j = 0; av[i][j]; ++j, ++size)
-			res[size] = av[i][j];
-
-		res[size] = '\n';
-		++size;
+		res = strcat(res, av[i]);
+		res = strcat(res, "\n");
 	}
-	res[size + 1] = '\0';
+
 	return (res);
 }
