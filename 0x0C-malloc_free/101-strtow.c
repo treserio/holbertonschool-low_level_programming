@@ -44,7 +44,6 @@ char **strtow(char *str)
 	if (j == 0)
 		return (NULL);
 	/* end in NULL */
-	arr = realloc(arr, sizeof(char *) * j + 1);
-	(arr[j]) = '\0';
+	(arr[j+1]) = '\0';
 	return (arr);
 }
