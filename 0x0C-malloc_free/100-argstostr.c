@@ -21,8 +21,8 @@ char *argstostr(int ac, char **av)
 	/* find the total size of all argvs */
 	for (i = 0; i < ac; ++i)
 		buff += strlen(av[i]);
-	/* add values for new line chars */
-	buff += ac;
+	/* add values for new line chars, and null byte */
+	buff += ac + 1;
 
 	/* allocate total buffer */
 	res = malloc(buff);
