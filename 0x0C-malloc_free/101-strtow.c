@@ -32,7 +32,7 @@ char **strtow(char *str)
 			word = malloc(loc + 1);
 			strncpy(word, str + i, loc);
 			strcat(word, "\0");
-			arr = realloc(arr, sizeof(char) * j + 1);
+			arr = realloc(arr, sizeof(char *) * j + 1);
 			arr[j] = word;
 			i += loc;
 			++j;
