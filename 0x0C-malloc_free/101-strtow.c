@@ -40,9 +40,10 @@ char **strtow(char *str)
 			continue;
 		}
 	}
+
 	/* end in NULL */
 	arr = realloc(arr, sizeof(char *) * j + 1);
-	arr[j + 1] = NULL;
+	(arr[j]) = '\0';
 
 	return (arr);
 }
