@@ -33,7 +33,7 @@ char **strtow(char *str)
 			strcat(arr[j], "\0");
 			i += loc;
 			++j;
-            arr = realloc(arr, sizeof(char *) * j + 1);
+			arr = realloc(arr, sizeof(char *) * j + 1);
 		}
 		else
 		{
