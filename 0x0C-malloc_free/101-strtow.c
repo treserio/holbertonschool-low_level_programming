@@ -29,11 +29,19 @@ char **strtow(char *str)
 		loc = strcspn(str + i, space);
 		if (loc > 0)
 		{
+			/*
 			word = malloc(loc + 1);
 			strncpy(word, str + i, loc);
 			strcat(word, "\0");
 			arr = realloc(arr, sizeof(char *) * j + 1);
 			arr[j] = word;
+			i += loc;
+			++j;
+			*/
+			arr[j] = malloc(loc + 1);
+			strncpy(arr[j], str + i, loc);
+			strcat(arr[j], "\0");
+			arr = realloc(arr, sizeof(char *) * j + 1);
 			i += loc;
 			++j;
 		}
@@ -45,7 +53,7 @@ char **strtow(char *str)
 
 	/* str check for all spaces */
 	if (j == 0)
-		return (0);
+		return (NULL);
 
 	/* end in NULL */
 	arr = realloc(arr, sizeof(char *) * j + 1);
