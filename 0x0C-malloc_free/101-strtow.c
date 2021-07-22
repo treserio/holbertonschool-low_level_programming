@@ -31,9 +31,9 @@ char **strtow(char *str)
 			arr[j] = malloc(loc + 1);
 			strncpy(arr[j], str + i, loc);
 			strcat(arr[j], "\0");
-			arr = realloc(arr, sizeof(char *) * j + 1);
 			i += loc;
 			++j;
+            arr = realloc(arr, sizeof(char *) * j + 1);
 		}
 		else
 		{
