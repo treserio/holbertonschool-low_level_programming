@@ -16,33 +16,27 @@ char **strtow(char *str)
 	if (str == NULL)
 		return (NULL);
 
-	arr = malloc(sizeof(char *) * 3);
+	arr = malloc(sizeof(char *));
 
 	size = strlen(str);
 	/* strcspn() finds first occurance of ' ' in str */
-	for (i = 0; i < size; i++)
+	for (i = 0, j = 0; i < size; ++i)
 	{
 		loc = strcspn(str + i, space);
 		if (loc > 0)
 		{
-			printf("%d", loc);
-			word = malloc(loc+1);
+			word = malloc(loc + 1);
 			strncpy(word, str + i, loc);
-			for (j = 0; word[j]; ++j)
-				printf("%c\n", word[j]);
-
 			strcat(word, "\0");
-			printf("%s", word);
-			arr[0] = word;
+			arr = realloc(arr, sizeof(char *) * j + 1);
+			arr[j] = word;
 			i += loc;
+			++j;
 		}
 		else
 		{
 			continue;
 		}
-		printf(":%d\n", i);
 	}
-
-	/* go until last word, still needs to be grabbed */
 	return (arr);
 }
