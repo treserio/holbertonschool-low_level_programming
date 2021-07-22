@@ -13,10 +13,12 @@ char **strtow(char *str)
 	char *space = " ", *word;
 	char **arr;
 
-	if (str == NULL)
+	if (str == NULL || *str == '\0' || strlen(str) == 1)
 		return (NULL);
 
 	arr = malloc(sizeof(char *));
+	if (arr == NULL)
+		return (NULL);
 
 	size = strlen(str);
 	/* strcspn() finds first occurance of ' ' in str */
@@ -38,5 +40,9 @@ char **strtow(char *str)
 			continue;
 		}
 	}
+	/* end in NULL */
+	arr = realloc(arr, sizeof(char *) * j + 1);
+	arr[j + 1] = NULL;
+
 	return (arr);
 }
