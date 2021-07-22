@@ -13,6 +13,8 @@ char **strtow(char *str)
 	char *space = " ", *word;
 	char **arr;
 
+	/* loop through str and if ! isspace chk = 1, if chk = 0 all spaces */
+
 	if (str == NULL || *str == '\0' || strlen(str) == 1)
 		return (NULL);
 
@@ -30,7 +32,7 @@ char **strtow(char *str)
 			word = malloc(loc + 1);
 			strncpy(word, str + i, loc);
 			strcat(word, "\0");
-			arr = realloc(arr, sizeof(char *) * j + 1);
+			arr = realloc(arr, sizeof(char) * j + 1);
 			arr[j] = word;
 			i += loc;
 			++j;
@@ -40,6 +42,10 @@ char **strtow(char *str)
 			continue;
 		}
 	}
+
+	/* str check for all spaces */
+	if (j == 0)
+		return (0);
 
 	/* end in NULL */
 	arr = realloc(arr, sizeof(char *) * j + 1);
