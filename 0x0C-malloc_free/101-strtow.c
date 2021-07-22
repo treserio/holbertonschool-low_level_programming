@@ -36,14 +36,12 @@ char **strtow(char *str)
 			arr = realloc(arr, sizeof(char *) * j + 1);
 		}
 		else
-		{
 			continue;
-		}
 	}
 	/* str check for all spaces */
 	if (j == 0)
 		return (NULL);
 	/* end in NULL */
-	(arr[j+1]) = '\0';
+	arr[j + 1] = '\0';
 	return (arr);
 }
