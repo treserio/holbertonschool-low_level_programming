@@ -1,9 +1,9 @@
 #include "holberton.h"
 #include <stdlib.h>
 /**
- * strtow - split strings into words
- * @str: string to split
- * Return: pointer to an array of words
+ * malloc_checked - malloc memory and confirm success
+ * @num: amount of memory to allocate
+ * Return: pointer to memory, or exit code 98
  */
 void *malloc_checked(unsigned int num)
 {
