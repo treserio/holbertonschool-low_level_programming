@@ -1,6 +1,7 @@
 #include "holberton.h"
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 /**
  * string_nconcat - malloc memory and concatonate S2 to S1 num chars
  * @s1: initial string
@@ -19,7 +20,10 @@ char *string_nconcat(char *s1, char *s2, unsigned int num)
 	if (s2 == NULL)
 		s2 = "";
 
-	concat = malloc(sizeof(s1) + num);
+	if (num > sizeof(s2))
+		concat = malloc(sizeof(s1) + strlen(s2));
+	else
+		concat = malloc(sizeof(s1) + num);
 	if (concat == NULL)
 		return (NULL);
 
