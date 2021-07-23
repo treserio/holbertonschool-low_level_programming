@@ -18,7 +18,7 @@ void *_calloc(unsigned int x, unsigned int size)
 	if (dest == NULL)
 		return (NULL);
 
-	for (i = 0; i < x; ++i)
+	for (i = 0; i < (x * size); ++i)
 		dest[i] = 0;
 
 	return (dest);
