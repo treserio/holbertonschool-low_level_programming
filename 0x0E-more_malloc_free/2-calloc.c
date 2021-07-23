@@ -15,6 +15,8 @@ void *_calloc(unsigned int x, unsigned int size)
 		return (NULL);
 
 	dest = malloc(x * size);
+	if (dest == NULL)
+		return (NULL);
 
 	for (i = 0; i < x; ++i)
 		dest[i] = 0;
