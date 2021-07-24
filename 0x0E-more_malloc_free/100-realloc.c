@@ -1,7 +1,7 @@
 #include "holberton.h"
 #include <stdlib.h>
 /**
- * array_range - create an array of ints from min to max
+ * _realloc - reallocate memory and copy over old values
  * @ptr: the pointer to the previously allocated memory
  * @osz: original size of buffer
  * @nsz: new size of buffer
