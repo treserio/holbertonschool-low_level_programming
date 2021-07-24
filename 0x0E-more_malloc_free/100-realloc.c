@@ -23,12 +23,17 @@ void *_realloc(void *ptr, unsigned int osz, unsigned int nsz)
 	}
 
 	if (ptr == NULL)
+	{
+		free(ptr);
 		return (malloc(nsz));
+	}
 
 	dest = malloc(nsz);
+	if (dest == NULL)
+		return (NULL);
 
 	/* copy values from input pointer to dest */
-	for (i = 0; i < nsz; ++i)
+	for (i = 0; i < osz; ++i)
 		dest[i] = orig[i];
 
 	free(ptr);
