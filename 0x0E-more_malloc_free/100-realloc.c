@@ -23,7 +23,7 @@ void *_realloc(void *ptr, unsigned int osz, unsigned int nsz)
 	}
 
 	if (ptr == NULL)
-		return (malloc(osz + nsz));
+		return (malloc(nsz));
 
 	dest = malloc(nsz);
 
