@@ -9,8 +9,8 @@
  */
 void *_realloc(void *ptr, unsigned int osz, unsigned int nsz)
 {
-	int i;
-	char *dest, *orig = ptr;	
+	unsigned int i;
+	char *dest, *orig = ptr;
 
 	/* new_size == old_size rtrn ptr */
 	if (osz == nsz)
@@ -24,6 +24,8 @@ void *_realloc(void *ptr, unsigned int osz, unsigned int nsz)
 
 	if (ptr == NULL)
 		return (malloc(osz + nsz));
+
+	dest = malloc(nsz);
 
 	/* copy values from input pointer to dest */
 	for (i = 0; i < nsz; ++i)
