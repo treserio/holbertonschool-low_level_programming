@@ -23,5 +23,5 @@ void print_dog(struct dog *d)
 	else
 		ow = (*d).name;
 
-	printf("Name: %s\nAge: %f\nOwner: %s\n", nm, d->age, ow);
+	printf("Name: %s\nAge: %.6f\nOwner: %s\n", nm, d->age, ow);
 }
