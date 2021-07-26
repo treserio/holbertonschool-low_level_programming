@@ -1,6 +1,46 @@
 #include "dog.h"
 #include <stdlib.h>
 /**
+ * _strdup - create a duplicate array of str
+ * @str: the string to copy
+ * Return: pntr to dup, or NULL if str NULL or insufficient mem
+ */
+char *_strdup(char *str)
+{
+	unsigned int size = 0;
+	char *arr;
+
+	if (str == NULL)
+		return (NULL);
+
+	/* get size of str */
+	while (str[size])
+		++size;
+
+	/* allocate memory for cpy buffer, size + 1 for NULL byte */
+	arr = malloc(sizeof(char) * size + 1);
+
+	if (arr != NULL)
+	{
+		/* repurpose size */
+		size = 0;
+
+		/* copy values over */
+		while (str[size])
+		{
+			arr[size] = str[size];
+			++size;
+		}
+		arr[size] = '\0';
+		return (arr);
+	}
+	else
+	{
+		free(arr);
+		return (NULL);
+	}
+}
+/**
  * init_dog - initialize a dog struct
  * @d: pointer the dog struct destination
  * @name: dog's name
@@ -12,9 +52,27 @@ void init_dog(struct dog *d, char *name, float age, char *owner)
 {
 	if (d)
 	{
-		(*d).name = name;
+		(*d).name = _strdup(name);
+		if ((*d).name == NULL)
+		{
+			free(d);
+			return (NULL);
+		}
 		(*d).age = age;
-		(*d).owner = owner;
+		if ((*d).age < 0)
+		{
+			free((*d).name);
+			free(d);
+			return (NULL);
+		}
+		(*d).owner = _strdup(owner);
+		if ((*d).owner == NULL)
+		{
+			free((*d).name);
+			free((*d).age);
+			free(d);
+			return (NULL);
+		}
 	}
 }
 /**
