@@ -10,14 +10,23 @@ char *_strdup(char *str);
  */
 dog_t *new_dog(char *name, float age, char *owner)
 {
-	dog_t *fido = malloc(sizeof(struct dog));
+	dog_t *fido = malloc(sizeof(struct dog_t));
 
 	(*fido).name = _strdup(name);
-	(*fido).age = age;
-	(*fido).owner = _strdup(owner);
-
-	if ((*fido).name == NULL || (*fido).age < 0 || (*fido).owner == NULL)
+	if ((*fido).name == NULL
 	{
+		free(fido);
+		return (NULL);
+	}
+
+	(*fido).age = age;
+
+	(*fido).owner = _strdup(owner);
+	if ((*fido).owner == NULL)
+	{
+		free(fido->owner);
+		free(fido->name);
+		free(fido);
 		return (NULL);
 	}
 
