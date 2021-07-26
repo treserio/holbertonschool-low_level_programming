@@ -1,7 +1,7 @@
 #ifndef _dawg
 #define _dawg
 /**
- * dog - initialize a dog struct
+ * struct dog - initialize a dog struct
  * @name: string, name of the dog
  * @age: float, age of the dog
  * @owner: string, name of the owner
