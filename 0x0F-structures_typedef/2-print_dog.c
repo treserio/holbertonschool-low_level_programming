@@ -14,12 +14,12 @@ void print_dog(struct dog *d)
 		exit(1);
 
 	if ((*d).name == NULL)
-		nm = ("nil");
+		nm = ("(nil)");
 	else
 		nm = (*d).name;
 
 	if ((*d).owner == NULL)
-		ow = ("nil");
+		ow = ("(nil)");
 	else
 		ow = (*d).name;
 
