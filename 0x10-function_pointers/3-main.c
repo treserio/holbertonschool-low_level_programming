@@ -32,6 +32,6 @@ int main(int argc, char *argv[])
 	b = atoi(argv[3]);
 	/* grab correct functions & print result */
 	func = get_op_func(argv[2]);
-	printf("%d", func(a, b));
+	printf("%d\n", func(a, b));
 	return (0);
 }
