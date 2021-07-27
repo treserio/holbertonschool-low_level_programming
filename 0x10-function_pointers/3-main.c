@@ -2,12 +2,12 @@
 #include "3-calc.h"
 #include <stdlib.h>
 #include <string.h>
+#include <stdio.h>
 /**
- * array_iterator - performs action on values in array to size
- * @array: array of values to enact action on
- * @size: size of the array
- * @action: function to perform on array values
- * Return: Nothing.
+ * main - performs various calculations based on argv[2]
+ * @argc: number of arguments fed to function
+ * @argv: string version of arguments
+ * Return: 0, exit 98 if wrong argc, 99 if wrong argv[2], 100 if div by 0
  */
 int main(int argc, char *argv[])
 {
