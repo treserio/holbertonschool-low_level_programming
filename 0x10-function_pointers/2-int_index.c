@@ -1,5 +1,4 @@
 #include "function_pointers.h"
-#include <stdlib.h>
 /**
  * int_index - search array for an integer value
  * @array: array of values to check for integer
