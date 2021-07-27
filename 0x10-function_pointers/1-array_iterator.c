@@ -1,4 +1,3 @@
-#include <stdlib.h>
 #include "function_pointers.h"
 /**
  * array_iterator - performs action on values in array to size
@@ -11,9 +10,9 @@ void array_iterator(int *array, size_t size, void (*action)(int))
 {
 	size_t i;
 
-	if (array != NULL && size != NULL && action != NULL)
+	if (array != NULL && action != NULL)
 	{
-		for (i = 0; i < size && array[i]; ++i)
+		for (i = 0; i < size; ++i)
 		{
 			action(array[i]);
 		}
