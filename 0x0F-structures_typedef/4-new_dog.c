@@ -1,6 +1,6 @@
 #include "dog.h"
 #include <stdlib.h>
-char *_strdup(char *str);
+
 /**
  * new_dog - create a new dog struct and initialize it's values
  * @name: string for dog's name
