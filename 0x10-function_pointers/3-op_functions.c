@@ -1,3 +1,5 @@
+#include <stdlib.h>
+#include <stdio.h>
 /**
  * add - add two numbers and return result
  * @a: number to be added
@@ -38,9 +40,8 @@ int op_div(int a, int b)
 {
 	if (b != 0)
 		return (a / b);
-	else
-		printf("Error\n");
-		exit(100);
+	printf("Error\n");
+	exit(100);
 }
 /**
  * op_mod - divide two numbers and return remainder
@@ -52,7 +53,6 @@ int op_mod(int a, int b)
 {
 	if (b != 0)
 		return (a % b);
-	else
-		printf("Error\n");
-		exit(100);
+	printf("Error\n");
+	exit(100);
 }
