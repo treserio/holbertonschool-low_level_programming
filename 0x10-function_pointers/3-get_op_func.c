@@ -1,6 +1,7 @@
 #include "3-calc.h"
 #include "function_pointers.h"
 #include <stdio.h>
+#include <string.h>
 /**
  * get_op_func - returns a pointer to the correct function to use
  * @s: string of operation fed from argv[2]
@@ -18,7 +19,7 @@ int (*get_op_func(char *s))(int, int)
 	};
 	int i = 0;
 
-	while (!strcmp(ops[i].op, s) && ops[i].op != NULL)
+	while (strcmp(ops[i].op, s) != 0 && ops[i].op != NULL)
 		++i;
 
 	return (ops[i].f);
