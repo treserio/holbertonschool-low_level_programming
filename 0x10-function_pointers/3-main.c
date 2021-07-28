@@ -1,8 +1,4 @@
-#include "function_pointers.h"
 #include "3-calc.h"
-#include <stdlib.h>
-#include <string.h>
-#include <stdio.h>
 /**
  * main - performs various calculations based on argv[2]
  * @argc: number of arguments fed to function
@@ -25,6 +21,7 @@ int main(int argc, char *argv[])
 	b = atoi(argv[3]);
 	/* grab correct functions & print result */
 	func = get_op_func(argv[2]);
+	/* check if the operation was found */
 	if (func == NULL)
 	{
 		printf("Error\n");

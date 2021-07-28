@@ -1,5 +1,4 @@
-#include <stdlib.h>
-#include <stdio.h>
+#include "3-calc.h"
 /**
  * add - add two numbers and return result
  * @a: number to be added

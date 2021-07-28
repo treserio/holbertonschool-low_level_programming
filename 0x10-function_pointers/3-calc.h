@@ -1,6 +1,9 @@
 #ifndef _calcz_
 #define _calcz_
 
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
 /**
  * struct op - Struct op
  * @op: The operator
