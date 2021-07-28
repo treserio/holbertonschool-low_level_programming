@@ -1,4 +1,5 @@
 #include "3-calc.h"
+#include "function_pointers.h"
 /**
  * main - performs various calculations based on argv[2]
  * @argc: number of arguments fed to function
