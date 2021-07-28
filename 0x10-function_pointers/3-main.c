@@ -7,9 +7,16 @@
  */
 int main(int argc, char *argv[])
 {
+	char *oper = "+-*/%";
 	int a, b;
 	int (*func)(int, int);
 
+	/* check for correct operator */
+	if (strstr(oper, argv[2]) == NULL)
+	{
+		printf("Error\n");
+		exit(99);
+	}
 	/* check for correct number of arguments */
 	if (argc != 4)
 	{
@@ -21,12 +28,6 @@ int main(int argc, char *argv[])
 	b = atoi(argv[3]);
 	/* grab correct functions & print result */
 	func = get_op_func(argv[2]);
-	/* check if the operation was found */
-	if (func == NULL)
-	{
-		printf("Error\n");
-		exit(99);
-	}
 	printf("%d\n", func(a, b));
 	return (0);
 }
