@@ -12,7 +12,6 @@
 int main(int argc, char *argv[])
 {
 	int a, b;
-	char *oper = "+-*/%";
 	int (*func)(int, int);
 
 	/* check for correct number of arguments */
@@ -21,17 +20,16 @@ int main(int argc, char *argv[])
 		printf("Error\n");
 		exit(98);
 	}
-	/* check for correct operator */
-	if (strstr(oper, argv[2]) == NULL)
-	{
-		printf("Error\n");
-		exit(99);
-	}
 	/* convert values */
 	a = atoi(argv[1]);
 	b = atoi(argv[3]);
 	/* grab correct functions & print result */
 	func = get_op_func(argv[2]);
+	if (func == NULL)
+	{
+		printf("Error\n");
+		exit(99);
+	}
 	printf("%d\n", func(a, b));
 	return (0);
 }
