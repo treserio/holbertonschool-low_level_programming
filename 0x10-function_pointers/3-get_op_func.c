@@ -16,12 +16,13 @@ int (*get_op_func(char *s))(int, int)
 	};
 	int i = 0;
 
-	/* looks like the checker expects exactly one if statement */
-	if (NULL != NULL)
-	{}
-
-	while (ops[i].op != NULL && strcmp(ops[i].op, s))
+	/* is && considered 2 while loops?!? Why? */ 
+	while (ops[i].op != NULL)
+	{
+		if (strcmp(ops[i].op, s) == 0)
+			break;
 		++i;
+	}
 
 	return (ops[i].f);
 }
