@@ -13,43 +13,40 @@ void print_all(const char * const format, ...)
 	char *arg;
 	char ch2str[2];
 
-	va_list args;
-	va_start(args, format);
-
-	/* pull out the first one as string and iterate through to check values */
-	arg = va_arg(args, char*);
-
-	while (arg[i])
+	if (format)
 	{
-		/* convert char to str */
-		ch2str[0] = arg[i];
-		ch2str[1] = '\0';
+		va_list args;
+		va_start(args, format);
 
-		func = get_op_func(ch2str);
-
-		/* check if func != NULL */
-		if (func != NULL)
+		while (format[i])
 		{
-			/* switch case to test what va_arg type to pass function */
-			switch (ch2str[0])
+			func = get_op_func(format[i]);
+
+			/* check if func != NULL */
+			if (func != NULL)
 			{
-				case 'c':
-					func(va_arg(args, char *));
-					break;
-				case 'i':
-					func(va_arg(args, int *));
-					break;
-				case 'f':
-					func(va_arg(args, double *));
-					break;
-				case 's':
-					func(va_arg(args, char *));
-					break;
+				/* switch case to test what va_arg type to pass function */
+				switch (format[i])
+				{
+					case 'c':
+						func(va_arg(args, char *));
+						break;
+					case 'i':
+						func(va_arg(args, int *));
+						break;
+					case 'f':
+						func(va_arg(args, double *));
+						break;
+					case 's':
+						func(va_arg(args, char *));
+						break;
+				}
 			}
+			++i;
 		}
-		++i;
+		va_end(args);
 	}
-	va_end(args);
+	print("\n");
 }
 /**
  * get_op_func - returns a pointer to the correct function to use
