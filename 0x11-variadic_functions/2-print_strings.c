@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdarg.h>
 /**
- * print_numbers - print the numbers passed to func with separator
- * @n: the numbers to print
+ * print_strings - print n amount of strings passed to func
+ * @n: the number of char * passed to func
  * @separator: the string to put between numbers
  * Return: void
  */
