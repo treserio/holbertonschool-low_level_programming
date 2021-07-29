@@ -4,7 +4,6 @@
  * @num: the identifier for the arguements
  * Return: the sum of all the variables
  */
-
 int sum_them_all(const unsigned int num, ...)
 {
 	unsigned int i = 0;
