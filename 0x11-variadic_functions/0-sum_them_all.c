@@ -1,4 +1,3 @@
-
 #include <stdarg.h>
 /**
  * sum_them_all - sum a variable amount of given values
