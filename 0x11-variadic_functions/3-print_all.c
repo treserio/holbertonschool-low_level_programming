@@ -13,40 +13,43 @@ void print_all(const char * const format, ...)
 	char *arg;
 	char ch2str[2];
 
-	if (format)
+	va_list args;
+	va_start(args, format);
+
+	while (format && format[i])
 	{
-		va_list args;
-		va_start(args, format);
+		ch2str[0] = format[i];
+		ch2str[1] = '\0';
 
-		while (format[i])
+		func = get_op_func(ch2str);
+
+		/* check if func != NULL */
+		if (func != NULL)
 		{
-			func = get_op_func(format[i]);
-
-			/* check if func != NULL */
-			if (func != NULL)
+			/* switch case to test what va_arg type to pass function */
+			switch (format[i])
 			{
-				/* switch case to test what va_arg type to pass function */
-				switch (format[i])
-				{
-					case 'c':
-						func(va_arg(args, char *));
-						break;
-					case 'i':
-						func(va_arg(args, int *));
-						break;
-					case 'f':
-						func(va_arg(args, double *));
-						break;
-					case 's':
-						func(va_arg(args, char *));
-						break;
-				}
+				case 'c':
+					func(va_arg(args, char *));
+					break;
+				case 'i':
+					func(va_arg(args, int *));
+					break;
+				case 'f':
+					func(va_arg(args, double *));
+					break;
+				case 's':
+					func(va_arg(args, char *));
+					break;
 			}
-			++i;
+			if (format[i + 1] != '\0' )
+				printf(", ");
 		}
-		va_end(args);
+		++i;
 	}
-	print("\n");
+	va_end(args);
+
+	printf("\n");
 }
 /**
  * get_op_func - returns a pointer to the correct function to use
@@ -79,7 +82,7 @@ void (*get_op_func(char *s))(void *)
 void p_c(void *c)
 {
 	char *ch = c;
-	printf("%c", *ch);
+	printf("%c", c);
 }
 /**
  * op_sub - subtract two numbers and return result
@@ -87,10 +90,9 @@ void p_c(void *c)
  * @b: number to subtract
  * Return: result of a - b
  */
-void p_d(void *n)
+void p_d(void *num)
 {
-	int *num = n;
-	printf("%d", *num);
+	printf("%d", num);
 }
 /**
  * op_mul - multiply two numbers and return result
@@ -98,10 +100,9 @@ void p_d(void *n)
  * @b: number to be multiplied
  * Return: result of a * b
  */
-void p_f(void *dub)
+void p_f(void *db)
 {
-	double *db = dub;
-	printf("%f", *db);
+	printf("%f", db);
 }
 /**
  * op_div - divide two numbers and return result
@@ -111,9 +112,8 @@ void p_f(void *dub)
  */
 void p_s(void *str)
 {
-	char *s = str;
-	if (s)
-		printf("%s", s);
+	if (str)
+		printf("%s", str);
 	else
 		printf("(nil)");
 }
