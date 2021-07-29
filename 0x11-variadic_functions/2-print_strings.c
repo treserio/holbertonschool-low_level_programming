@@ -1,5 +1,4 @@
-#include <stdio.h>
-#include <stdarg.h>
+#include "variadic_functions.h"
 /**
  * print_strings - print n amount of strings passed to func
  * @n: the number of char * passed to func
