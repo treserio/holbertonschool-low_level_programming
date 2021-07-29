@@ -12,18 +12,18 @@
 typedef struct op
 {
 	char *op;
-	int (*f)(int a, int b);
+	void (*f)(void *);
 } op_t;
 
-int (*get_op_func(char *s))(int, int);
+void (*get_op_func(char *s))(void *);
 int sum_them_all(const unsigned int n, ...);
 void print_numbers(const char *separator, const unsigned int n, ...);
 void print_strings(const char *separator, const unsigned int n, ...);
 void print_all(const char * const format, ...);
 
-void p_c(char *ch);
-void p_d(int *num);
-void p_f(double *db);
-void p_s(char *s);
+void p_c(void *);
+void p_d(void *);
+void p_f(void *);
+void p_s(void *);
 
 #endif

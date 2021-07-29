@@ -1,4 +1,5 @@
 #include "variadic_functions.h"
+#include <string.h>
 /**
  * print_numbers - print the numbers passed to func with separator
  * @n: the numbers to print
@@ -8,7 +9,7 @@
 void print_all(const char * const format, ...)
 {
 	int i = 0;
-	int (*func)(void*);
+	void (*func)(void*);
 	char *arg;
 	char ch2str[2];
 
@@ -25,7 +26,7 @@ void print_all(const char * const format, ...)
 		ch2str[1] = '\0';
 
 		func = get_op_func(ch2str);
-		
+
 		/* check if func != NULL */
 		if (func != NULL)
 		{
@@ -33,13 +34,13 @@ void print_all(const char * const format, ...)
 			switch (ch2str[0])
 			{
 				case 'c':
-					func(va_arg(args, char));
+					func(va_arg(args, char *));
 					break;
 				case 'i':
-					func(va_arg(args, int));			
+					func(va_arg(args, int *));
 					break;
 				case 'f':
-					func(va_arg(args, double *));			
+					func(va_arg(args, double *));
 					break;
 				case 's':
 					func(va_arg(args, char *));
@@ -55,7 +56,7 @@ void print_all(const char * const format, ...)
  * @s: string of operation fed from argv[2]
  * Return: pointer to the correct function
  */
-int (*get_op_func(char *s))(int, int)
+void (*get_op_func(char *s))(void *)
 {
 	op_t ops[] = {
 		{"c", p_c},
@@ -78,8 +79,9 @@ int (*get_op_func(char *s))(int, int)
  * @b: number to be added
  * Return: result of a + b
  */
-void p_c(char *ch)
+void p_c(void *c)
 {
+	char *ch = c;
 	printf("%c", *ch);
 }
 /**
@@ -88,8 +90,9 @@ void p_c(char *ch)
  * @b: number to subtract
  * Return: result of a - b
  */
-void p_d(int *num)
+void p_d(void *n)
 {
+	int *num = n;
 	printf("%d", *num);
 }
 /**
@@ -98,8 +101,9 @@ void p_d(int *num)
  * @b: number to be multiplied
  * Return: result of a * b
  */
-void p_f(double *db)
+void p_f(void *dub)
 {
+	double *db = dub;
 	printf("%f", *db);
 }
 /**
@@ -108,8 +112,9 @@ void p_f(double *db)
  * @b: divisor
  * Return: result of a / b
  */
-void p_s(char *s)
+void p_s(void *str)
 {
+	char *s = str;
 	if (s)
 		printf("%s", s);
 	else
