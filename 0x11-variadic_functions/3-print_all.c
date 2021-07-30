@@ -81,7 +81,6 @@ void (*get_op_func(char *s))(void *)
  */
 void p_c(void *c)
 {
-	char *ch = c;
 	printf("%c", c);
 }
 /**
