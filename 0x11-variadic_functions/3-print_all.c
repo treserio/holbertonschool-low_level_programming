@@ -9,6 +9,7 @@ void print_all(const char * const format, ...)
 {
 	int i = 0, j;
 	va_list args;
+	char *sep = "";
 	op_t ops[] = {
 		{"c", p_c},
 		{"i", p_d},
@@ -16,8 +17,6 @@ void print_all(const char * const format, ...)
 		{"s", p_s},
 		{NULL, NULL}
 	};
-
-	char *sep = "";
 
 	va_start(args, format);
 
@@ -34,7 +33,7 @@ void print_all(const char * const format, ...)
 				sep = ", ";
 				break;
 			}
-			j++;
+			++j;
 		}
 		++i;
 	}
