@@ -7,27 +7,36 @@
  */
 void print_all(const char * const format, ...)
 {
-	int i = 0;
+	int i = 0, j;
 	void (*func)(va_list);
 	char ch2str[2];
 	va_list args;
+	op_t ops[] = {
+		{"c", p_c},
+		{"i", p_d},
+		{"f", p_f},
+		{"s", p_s},
+		{NULL, NULL}
+	};
+
+	char *sep = "";
 
 	va_start(args, format);
 
 	while (format && format[i])
 	{
-		ch2str[0] = format[i];
-		ch2str[1] = '\0';
+		j = 0;
 
-		func = get_op_func(ch2str);
-
-		/* check if func != NULL */
-		if (func != NULL)
+		while (ops[j].op != NULL)
 		{
-			func(args);
-
-			if (format[i + 1] != '\0')
-				printf(", ");
+			if (*(ops[j].op) == format[i])
+			{
+				printf("%s", sep);
+				ops[j].f(args);
+				sep = ", ";
+				break;
+			}
+			j++;
 		}
 		++i;
 	}
@@ -42,13 +51,7 @@ void print_all(const char * const format, ...)
  */
 void (*get_op_func(char *s))(va_list)
 {
-	op_t ops[] = {
-		{"c", p_c},
-		{"i", p_d},
-		{"f", p_f},
-		{"s", p_s},
-		{NULL, NULL}
-	};
+
 	int i = 0;
 
 	/* is && considered 2 while loops?!? Why? */
