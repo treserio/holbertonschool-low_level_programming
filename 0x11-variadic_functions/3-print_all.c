@@ -1,18 +1,17 @@
 #include "variadic_functions.h"
 #include <string.h>
 /**
- * print_numbers - print the numbers passed to func with separator
- * @n: the numbers to print
- * @separator: the string to put between numbers
+ * print_all - print variable types of values passed in, determined by format
+ * @format: a string of operators telling print_all how to print the va_list
  * Return: void
  */
 void print_all(const char * const format, ...)
 {
 	int i = 0;
-	void (*func)(void*);
+	void (*func)(va_list);
 	char ch2str[2];
-
 	va_list args;
+
 	va_start(args, format);
 
 	while (format && format[i])
@@ -27,7 +26,7 @@ void print_all(const char * const format, ...)
 		{
 			func(args);
 
-			if (format[i + 1] != '\0' )
+			if (format[i + 1] != '\0')
 				printf(", ");
 		}
 		++i;
@@ -59,7 +58,7 @@ void (*get_op_func(char *s))(va_list)
 	return (ops[i].f);
 }
 /**
- * p_s - print char
+ * p_c - print char
  * @args: va_list with the correct variable setup
  * Return: void
  */
@@ -68,7 +67,7 @@ void p_c(va_list args)
 	printf("%c", va_arg(args, int));
 }
 /**
- * p_s - print int
+ * p_d - print int
  * @args: va_list with the correct variable setup
  * Return: void
  */
@@ -77,7 +76,7 @@ void p_d(va_list args)
 	printf("%d", va_arg(args, int));
 }
 /**
- * p_s - print float
+ * p_f - print float
  * @args: va_list with the correct variable setup
  * Return: void
  */
@@ -92,7 +91,7 @@ void p_f(va_list args)
  */
 void p_s(va_list args)
 {
-	char * str = va_arg(args, char *);
+	char *str = va_arg(args, char *);
 
 	if (str)
 		printf("%s", str);
