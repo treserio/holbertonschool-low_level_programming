@@ -4,9 +4,9 @@ msg1    db "Hello, Holberton",0
 
     section .text
     extern printf
-    global _start
+	global main
 
-_start:
+main:
     mov  edx, msg1
     mov  esi, 1
     mov  edi, fmt
