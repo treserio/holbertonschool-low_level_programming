@@ -45,22 +45,6 @@ void print_all(const char * const format, ...)
 	printf("\n");
 }
 /**
- * get_op_func - returns a pointer to the correct function to use
- * @s: string of operation fed from argv[2]
- * Return: pointer to the correct function
- */
-void (*get_op_func(char *s))(va_list)
-{
-
-	int i = 0;
-
-	/* is && considered 2 while loops?!? Why? */
-	while (ops[i].op != NULL && strcmp(ops[i].op, s))
-		++i;
-
-	return (ops[i].f);
-}
-/**
  * p_c - print char
  * @args: va_list with the correct variable setup
  * Return: void
