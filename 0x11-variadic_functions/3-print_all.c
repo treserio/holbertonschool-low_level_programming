@@ -10,7 +10,6 @@ void print_all(const char * const format, ...)
 {
 	int i = 0;
 	void (*func)(void*);
-	char *arg;
 	char ch2str[2];
 
 	va_list args;
@@ -42,7 +41,7 @@ void print_all(const char * const format, ...)
  * @s: string of operation fed from argv[2]
  * Return: pointer to the correct function
  */
-void (*get_op_func(char *s))(void *)
+void (*get_op_func(char *s))(va_list)
 {
 	op_t ops[] = {
 		{"c", p_c},
@@ -66,7 +65,7 @@ void (*get_op_func(char *s))(void *)
  */
 void p_c(va_list args)
 {
-	printf("%c", va_arg(args, char));
+	printf("%c", va_arg(args, int));
 }
 /**
  * p_s - print int
@@ -84,7 +83,7 @@ void p_d(va_list args)
  */
 void p_f(va_list args)
 {
-	printf("%f", va_arg(args, double *));
+	printf("%f", va_arg(args, double));
 }
 /**
  * p_s - print string
