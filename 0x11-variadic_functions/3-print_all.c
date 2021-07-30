@@ -1,47 +1,6 @@
 #include "variadic_functions.h"
 #include <string.h>
 /**
- * print_all - print variable types of values passed in, determined by format
- * @format: a string of operators telling print_all how to print the va_list
- * Return: void
- */
-void print_all(const char * const format, ...)
-{
-	int i = 0, j;
-	va_list args;
-	char *sep = "";
-	op_t ops[] = {
-		{"c", p_c},
-		{"i", p_d},
-		{"f", p_f},
-		{"s", p_s},
-		{NULL, NULL}
-	};
-
-	va_start(args, format);
-
-	while (format && format[i])
-	{
-		j = 0;
-
-		while (ops[j].op != NULL)
-		{
-			if (*(ops[j].op) == format[i])
-			{
-				printf("%s", sep);
-				ops[j].f(args);
-				sep = ", ";
-				break;
-			}
-			++j;
-		}
-		++i;
-	}
-	va_end(args);
-
-	printf("\n");
-}
-/**
  * p_c - print char
  * @args: va_list with the correct variable setup
  * Return: void
@@ -81,4 +40,45 @@ void p_s(va_list args)
 		printf("%s", str);
 	else
 		printf("(nil)");
+}
+/**
+ * print_all - print variable types of values passed in, determined by format
+ * @format: a string of operators telling print_all how to print the va_list
+ * Return: void
+ */
+void print_all(const char * const format, ...)
+{
+	int i = 0, j;
+	va_list args;
+	char *sep = "";
+	op_t ops[] = {
+		{"c", p_c},
+		{"i", p_d},
+		{"f", p_f},
+		{"s", p_s},
+		{NULL, NULL}
+	};
+
+	va_start(args, format);
+
+	while (format && format[i])
+	{
+		j = 0;
+
+		while (ops[j].op != NULL)
+		{
+			if (*(ops[j].op) == format[i])
+			{
+				printf("%s", sep);
+				ops[j].f(args);
+				sep = ", ";
+				break;
+			}
+			++j;
+		}
+		++i;
+	}
+	va_end(args);
+
+	printf("\n");
 }
