@@ -20,10 +20,10 @@ void print_numbers(const char *separator, const unsigned int n, ...);
 void print_strings(const char *separator, const unsigned int n, ...);
 void print_all(const char * const format, ...);
 
-void (*get_op_func(char *s))(void *);
-void p_c(void *);
-void p_d(void *);
-void p_f(void *);
-void p_s(void *);
+void (*get_op_func(char *s))(va_list);
+void p_c(va_list);
+void p_d(va_list);
+void p_f(va_list);
+void p_s(va_list);
 
 #endif

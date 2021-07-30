@@ -26,22 +26,8 @@ void print_all(const char * const format, ...)
 		/* check if func != NULL */
 		if (func != NULL)
 		{
-			/* switch case to test what va_arg type to pass function */
-			switch (format[i])
-			{
-				case 'c':
-					func(va_arg(args, char *));
-					break;
-				case 'i':
-					func(va_arg(args, int *));
-					break;
-				case 'f':
-					func(va_arg(args, double *));
-					break;
-				case 's':
-					func(va_arg(args, char *));
-					break;
-			}
+			func(args);
+
 			if (format[i + 1] != '\0' )
 				printf(", ");
 		}
@@ -74,43 +60,41 @@ void (*get_op_func(char *s))(void *)
 	return (ops[i].f);
 }
 /**
- * op_add - add two numbers and return result
- * @a: number to be added
- * @b: number to be added
- * Return: result of a + b
+ * p_s - print char
+ * @args: va_list with the correct variable setup
+ * Return: void
  */
-void p_c(void *c)
+void p_c(va_list args)
 {
-	printf("%c", c);
+	printf("%c", va_arg(args, char));
 }
 /**
- * op_sub - subtract two numbers and return result
- * @a: number to be subtracted from
- * @b: number to subtract
- * Return: result of a - b
+ * p_s - print int
+ * @args: va_list with the correct variable setup
+ * Return: void
  */
-void p_d(void *num)
+void p_d(va_list args)
 {
-	printf("%d", num);
+	printf("%d", va_arg(args, int));
 }
 /**
- * op_mul - multiply two numbers and return result
- * @a: number to be multiplied
- * @b: number to be multiplied
- * Return: result of a * b
+ * p_s - print float
+ * @args: va_list with the correct variable setup
+ * Return: void
  */
-void p_f(void *db)
+void p_f(va_list args)
 {
-	printf("%f", db);
+	printf("%f", va_arg(args, double *));
 }
 /**
- * op_div - divide two numbers and return result
- * @a: number to be divided
- * @b: divisor
- * Return: result of a / b
+ * p_s - print string
+ * @args: va_list with the correct variable setup
+ * Return: void
  */
-void p_s(void *str)
+void p_s(va_list args)
 {
+	char * str = va_arg(args, char *);
+
 	if (str)
 		printf("%s", str);
 	else
