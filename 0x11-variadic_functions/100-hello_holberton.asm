@@ -9,8 +9,5 @@ main:
     mov rdx, 17
     syscall
 
-    mov rax, 60
-    xor rdi, 0
-    syscall
 section .data
 msg:	db 'Hello, Holberton',0xa
