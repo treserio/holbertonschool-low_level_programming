@@ -8,8 +8,6 @@
 void print_all(const char * const format, ...)
 {
 	int i = 0, j;
-	void (*func)(va_list);
-	char ch2str[2];
 	va_list args;
 	op_t ops[] = {
 		{"c", p_c},
