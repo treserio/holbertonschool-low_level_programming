@@ -1,6 +1,4 @@
 #include "lists.h"
-
-
 /**
  * add_node - add a node to the front of the list
  * @head: address of first node pointer
