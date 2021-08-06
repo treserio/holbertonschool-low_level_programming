@@ -1,7 +1,7 @@
 #include "lists.h"
 /**
  * free_list - free all elements of a list
- * @node: starting node in list
+ * @head: starting node in list
  * Return: void
  */
 void free_list(list_t *head)
@@ -12,7 +12,7 @@ void free_list(list_t *head)
 	while (head)
 	{
 		eraser = head;
-        head = head->next;
+		head = head->next;
 		free(eraser->str);
 		free(eraser);
 	}
