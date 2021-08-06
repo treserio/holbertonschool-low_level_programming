@@ -6,29 +6,15 @@
  */
 void free_list(list_t *head)
 {
-	unsigned int i = 0, j;
-	list_t *start = malloc(sizeof(list_t));
-
-	if (!start)
-		return (NULL);
-
-	start = head;
+	list_t *eraser;
 
 	/* find how many nodes */
 	while (head)
 	{
-		++i;
-		head = head->next;
+		eraser = head;
+        head = head->next;
+		free(eraser->str);
+		free(eraser);
 	}
 
-	for (; i > 0; --i)
-	{
-		head = start;
-		for (j = 0; j < i; ++j)
-			head = head->next;
-
-		free(head->str);
-		free(head->len);
-		free(head->next);
-	}
 }
