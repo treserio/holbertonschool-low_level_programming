@@ -3,7 +3,7 @@
 
 /**
  * add_node - add a node to the front of the list
- * @node: starting node to print in list
+ * @head: address of first node pointer
  * @str: the string to add in the list
  * Return: NULL if fail, or ptr to first item of list
  */
