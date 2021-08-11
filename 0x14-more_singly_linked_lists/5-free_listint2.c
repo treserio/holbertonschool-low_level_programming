@@ -9,7 +9,7 @@ void free_listint2(listint_t **head)
 	listint_t *eraser;
 
 	/* find how many nodes */
-	while (*head)
+	while (*head && head)
 	{
 		eraser = *head;
 		*head = (*head)->next;
