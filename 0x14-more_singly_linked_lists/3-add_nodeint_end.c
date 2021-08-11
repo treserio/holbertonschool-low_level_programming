@@ -1,6 +1,6 @@
 #include "lists.h"
 /**
- * add_nodeint - add a node to the front of the list
+ * add_nodeint_end - add a node to the front of the list
  * @head: address of first node pointer
  * @n: int value for new node
  * Return: NULL if fail, or ptr to first item of list
