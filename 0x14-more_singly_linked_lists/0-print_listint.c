@@ -4,16 +4,14 @@
  * @node: starting node to print in list
  * Return: number of items in list
  */
-size_t print_listint(const list_t *node)
+size_t print_listint(const listint_t *node)
 {
 	int i = 0;
 
 	while (node)
 	{
-		if (!node->str)
-			printf("[0] (nil)\n");
-		else
-			printf("[%d] %s\n", node->len, node->str);
+		if (node->n)
+			printf("%d\n", node->n);
 		++i;
 		node = (*node).next;
 	}
