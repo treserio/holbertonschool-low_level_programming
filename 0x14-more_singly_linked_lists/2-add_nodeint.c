@@ -5,9 +5,8 @@
  * @n: int value for new node
  * Return: NULL if fail, or ptr to first item of list
  */
-list_t *add_nodeint(listint_t **head, const int n)
+listint_t *add_nodeint(listint_t **head, const int n)
 {
-	unsigned int sz = 0;
 	listint_t *new = malloc(sizeof(listint_t));
 
 	if (!new || !head || !n)
