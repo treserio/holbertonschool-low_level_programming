@@ -1,5 +1,5 @@
 #include "lists.h"
-#include "stdio.h"
+
 /**
  * print_listint - print the str of linked list and return values in list
  * @node: starting node to print in list
