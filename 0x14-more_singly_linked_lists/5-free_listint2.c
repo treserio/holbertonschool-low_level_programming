@@ -7,16 +7,13 @@
 void free_listint2(listint_t **head)
 {
 	listint_t *eraser;
-	int i;
 
 	/* find how many nodes */
-	for (i = 0; head; ++i)
+	while (*head)
 	{
-		eraser = head;
-		head = head->next;
-		if (i = 0)
-			eraser = NULL;
-		else
-			free(eraser);
+		eraser = *head;
+		*head = (*head)->next;
+		free(eraser);
 	}
+	head = NULL;
 }
