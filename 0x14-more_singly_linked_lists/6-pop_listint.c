@@ -4,7 +4,7 @@
  * @head: starting node in list
  * Return: the removed head data
  */
-int pop_listint(listint_t **head);
+int pop_listint(listint_t **head)
 {
 	listint_t *eraser;
 	int rtrn_val = 0;
@@ -12,8 +12,8 @@ int pop_listint(listint_t **head);
 	if (head && *head)
 	{
 		eraser = *head;
-		rtrn_val = eraser->n
-		head = (*head)->next;
+		rtrn_val = eraser->n;
+		*head = (*head)->next;
 		free(eraser);
 	}
 
