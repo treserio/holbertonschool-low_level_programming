@@ -15,11 +15,15 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 	if (!new || !head)
 		return (NULL);
 
+	if (*head == NULL && idx > 0)
+		return (NULL);
+
 	/* check for zero idx, meaning before list */
 	if (!idx)
 	{
 		new->n = n;
 		new->next = *head;
+		*head = new;
 		return (new);
 	}
 	/* else start after first node */
