@@ -23,7 +23,7 @@ unsigned int binary_to_uint(const char *binary)
 	{
 		if (binary[len] == '1')
 			rtrn += pwr;
-	}	
+	}
 
 	return (rtrn);
 }
