@@ -9,6 +9,6 @@ int set_bit(unsigned long int *val, unsigned int index)
 {
 	if (index > 63)
 		return (-1);
-	*val = (1 << index);
+	*val |= (1 << index);
 	return (1);
 }
