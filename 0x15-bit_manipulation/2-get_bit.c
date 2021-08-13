@@ -1,6 +1,6 @@
 #include "holberton.h"
 /**
- * get_bit - gets a bit at a certain index.
+ * get_bit - find the value of a bit at a certain index in val
  * @val: the value to examine the bit
  * @index: the index of the bit to check
  * Return: the bit set at index of val or -1 if failed.
