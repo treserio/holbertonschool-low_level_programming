@@ -8,11 +8,11 @@
 unsigned int flip_bits(unsigned long int num1, unsigned long int num2)
 {
 	int count = 0;
-	unsigned long int dif = num1^num2;
+	unsigned long int dif = num1 ^ num2;
 
-	for (; dif > 0; --dif)
+	for (; dif > 0; dif &= (dif - 1))
 	{
-		count += (1 & dif);
+		count++;
 	}
 
 	return (count);
