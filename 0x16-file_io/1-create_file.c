@@ -16,10 +16,10 @@ int create_file(const char *filename, char *text)
 	if (!text)
 		text = "";
 
-	file = open(filename, O_RDWR | O_CREAT);
+	file = open(filename, O_CREAT, O_RDWR);
 	if (file == -1)
 		return (-1);
-	
+
 	chk = write(file, text, strlen(text));
 	if (chk == -1)
 		return (-1);
