@@ -10,8 +10,11 @@ int create_file(const char *filename, char *text)
 {
 	ssize_t file, chk;
 
-	if (!filename || !text)
+	if (!filename)
 		return (-1);
+
+	if (!text)
+		text = "";
 
 	file = open(filename, O_RDWR | O_CREAT);
 	if (file == -1)
