@@ -1,8 +1,9 @@
 #include "holberton.h"
 /**
- * sum_them_all - sum a variable amount of given values
- * @num: the identifier for the arguements
- * Return: the sum of all the variables
+ * read_textfile - read "letters" amount of text from a file
+ * @filename: the name of the file to read
+ * @letters: the number of chars to read from the file
+ * Return: 0 on failure, else the number of chars printed to stdout
  */
 ssize_t read_textfile(const char *filename, size_t letters)
 {
@@ -19,11 +20,12 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	chk = read(chk, temp, letters);
 	if (chk == -1)
 		return (0);
-	
-	chk = write(STDOUT, temp, chk);
+
+	chk = write(STDOUT_FILENO, temp, chk);
 	if (chk == -1)
 		return (0);
 
 	free(temp);
+	close(chk);
 	return (chk);
 }
