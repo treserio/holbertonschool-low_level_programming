@@ -1,5 +1,4 @@
 #include "holberton.h"
-#include <string.h>
 /**
  * create_file - write the provided text into a file
  * @filename: the name of the file to write
@@ -16,7 +15,7 @@ int create_file(const char *filename, char *text)
 	if (!text)
 		text = "";
 
-	file = open(filename, O_CREAT, O_RDWR);
+	file = open(filename, O_RDWR | O_CREAT, S_IRUSR + S_IWUSR);
 	if (file == -1)
 		return (-1);
 
