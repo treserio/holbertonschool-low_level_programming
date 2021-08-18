@@ -30,8 +30,7 @@ int main(int argc, char *argv[])
 	}
 	while ((chk = read(f_frm, temp, 1024)) != 0)
 	{
-		write(f_to, temp, chk);
-		if (chk == -1)
+		if(write(f_to, temp, chk) != chk;)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
 			exit(99);
