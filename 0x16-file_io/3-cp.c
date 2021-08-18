@@ -11,17 +11,12 @@ int main(int argc, char *argv[])
 	int f_frm, f_to, chk;
 	/* confirm correct arguments */
 	if (argc != 3)
-	{
-		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
-		exit(97);
-	}
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n"), exit(97);
 	/* check read file1 */
 	f_frm = open(argv[1], O_RDONLY);
 	if (f_frm == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]),
 		exit(98);
-	}
 	f_to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 	if (f_to == -1)
 	{
@@ -30,7 +25,10 @@ int main(int argc, char *argv[])
 	}
 	while ((chk = read(f_frm, temp, 1024)) != 0)
 	{
-		if(write(f_to, temp, chk) != chk)
+		if (chk == -1)
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]),
+		exit(98);			
+		if (write(f_to, temp, chk) != chk)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
 			exit(99);
