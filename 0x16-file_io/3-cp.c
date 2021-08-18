@@ -30,7 +30,7 @@ int main(int argc, char *argv[])
 	}
 	while(read(file_from, temp, 1024))
 	{
-		chk = write(file_to, buff, 1024);
+		chk = write(file_to, temp, 1024);
 		if (chk == -1)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
