@@ -1,14 +1,14 @@
 #include "holberton.h"
 /**
- * append_text_to_file - append text to the specified file
- * @filename: the name of the file to append text to
- * @input: the string to append to the file
- * Return: 1 on success, else -1
+ * main - copy text from one file to another
+ * @argc: the number of arguments passed the function
+ * @argv: array of arguments passed the function as char *
+ * Return: 0 on Success, 97 wrong args, 98 no read, 99 no write, 100 no close
  */
 int main(int argc, char *argv[])
 {
 	char temp[1024];
-	int file_from, file_to, chk;
+	int f_frm, f_to, chk;
 	/* confirm correct arguments */
 	if (argc != 3)
 	{
@@ -16,33 +16,33 @@ int main(int argc, char *argv[])
 		exit(97);
 	}
 	/* check read file1 */
-	file_from = open(argv[1], O_RDONLY);
-	if (file_from == -1)
+	f_frm = open(argv[1], O_RDONLY);
+	if (f_frm == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
-		exit (98);
+		exit(98);
 	}
-	file_to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
-	if (file_to == -1)
+	f_to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
+	if (f_to == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
-		exit (99);
+		exit(99);
 	}
-	while((chk = read(file_from, temp, 1024)) != 0)
+	while ((chk = read(f_frm, temp, 1024)) != 0)
 	{
-		write(file_to, temp, chk);
+		write(f_to, temp, chk);
 		if (chk == -1)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
 			exit(99);
 		}
 	}
-	if (close(file_from) == -1)
+	if (close(f_frm) == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file_from);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", f_frm);
 		exit(100);
 	}
-	if (close(file_to) == -1)
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file_to), exit(100);
+	if (close(f_to) == -1)
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", f_to), exit(100);
 	return (0);
 }
