@@ -13,11 +13,11 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	if (!filename || !temp)
 		return (0);
 
-	chk = open(filename, O_RDONLY);
+	open(filename, O_RDONLY);
 	if (chk == -1)
 		return (0);
 
-	chk = read(chk, temp, letters);
+	chk = read(3, temp, letters);
 	if (chk == -1)
 		return (0);
 
@@ -26,6 +26,6 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		return (0);
 
 	free(temp);
-	close(filename);
+	close(3);
 	return (chk);
 }
