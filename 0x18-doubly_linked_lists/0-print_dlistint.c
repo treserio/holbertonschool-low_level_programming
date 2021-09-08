@@ -9,7 +9,7 @@ size_t print_dlistint(const dlistint_t *node)
 {
 	size_t i = 0;
 
-	for (; node->prev; node = node->prev)
+	for (; node && node->prev; node = node->prev)
 	;
 	for (; node; node = node->next, ++i)
 		printf("%d\n", node->n);
