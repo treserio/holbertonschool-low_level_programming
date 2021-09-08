@@ -1,6 +1,6 @@
 #include "lists.h"
 /**
- * print_dlistint - count the nodes
+ * dlistint_len - count the nodes
  * @node: starting node to print in list
  * Return: number of items in list
  */
