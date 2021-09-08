@@ -4,7 +4,7 @@
  * @node: starting node to print in list
  * Return: number of items in list
  */
-size_t print_dlistint(const dlistint_t *node)
+size_t dlistint_len(const dlistint_t *node)
 {
 	size_t i = 0;
 
