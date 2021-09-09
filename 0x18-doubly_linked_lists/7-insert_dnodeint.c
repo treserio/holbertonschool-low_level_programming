@@ -17,9 +17,6 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 	if (!h)
 		return (NULL);
 	start = *h;
-	/* confirm we're at the top */
-	for (; h && *h && (*h)->prev; *h = (*h)->prev)
-	;
 	/* find the idxed node */
 	for (; h && i < (idx - 1); *h = (*h)->next, ++i)
 	;
