@@ -29,11 +29,6 @@ int delete_dnodeint_at_index(dlistint_t **h, unsigned int idx)
 	if (!eraser || !eraser->next)
 		return (-1);
 
-	/* check if the one after deleting is there to point back to this node */
-	/*temp = eraser;
-	eraser = eraser->next;
-	temp->next = eraser->next;
-	eraser->next->prev = temp;*/
 	eraser = eraser->next;
 	eraser->prev->next = eraser->next;
 	if (eraser->next)
