@@ -9,33 +9,33 @@
 dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 {
 	unsigned int i = 0;
-	dlistint_t *new, *start;
+	dlistint_t *new, *temp;
 
 	if (idx == 0)
 		return (add_dnodeint(h, n));
 	/* check that our list exists */
 	if (!h)
 		return (NULL);
-	start = *h;
+	temp = *h;
 	/* find the idxed node */
-	for (; h && *h && i < (idx - 1); *h = (*h)->next, ++i)
+	for (; temp && i < (idx - 1); temp = temp->next, ++i)
 	;
 	/* if we're not at the node before index rtrn NULL */
 	if (i != (idx - 1))
 		return (NULL);
 	/* if i = idx - 1 && *h == NULL we're at the end */
-	if (!(*h))
+	if (!temp)
 		return (add_dnodeint_end(h, n));
 	/* else malloc new and insert in between nodes */
 	new = malloc(sizeof(dlistint_t));
 	if (!new)
 		return (NULL);
 	new->n = n;
-	new->next = (*h)->next;
-	new->prev = (*h);
-	if ((*h)->next)
+	new->next = temp->next;
+	new->prev = temp;
+	if (temp->next)
 		new->next->prev = new;
-	(*h)->next = new;
-	*h = start;
+	temp->next = new;
+
 	return (new);
 }
