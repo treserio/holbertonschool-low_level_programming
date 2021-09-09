@@ -10,6 +10,9 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 {
 	unsigned int i = 0;
 	dlistint_t *new, *start;
+	
+	if (idx == 0)
+		return (add_dnodeint(h, n));
 	/* check that our list exists */
 	if (!h)
 		return (NULL);
@@ -17,8 +20,6 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 	/* confirm we're at the top */
 	for (; h && *h && (*h)->prev; *h = (*h)->prev)
 	;
-	if (idx == 0)
-		return (add_dnodeint(h, n));
 	/* find the idxed node */
 	for (; h && i < (idx - 1); *h = (*h)->next, ++i)
 	;
