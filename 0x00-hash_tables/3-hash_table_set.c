@@ -9,39 +9,43 @@
  */
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
-	hash_node_t *worker, *input_node;
+	hash_node_t *worker, *input_node, *chk;
 	unsigned long int idx;
 
 	input_node = malloc(sizeof(hash_node_t));
-
 	/* confirm we can insert into the hash_table given */
 	if (!ht || !ht->array || !ht->size || !key || !value || !input_node)
 		return (0);
-
 	/* establish new node and confirm mallocs */
 	input_node->key = strdup(key);
 	input_node->value = strdup(value);
 	if (!input_node->key || !input_node->value)
 		return (0);
-
 	/* find the index */
 	idx = key_index((const unsigned char *)key, ht->size);
-
-	/* create temp pointer to hash table index we want */
-	worker = ht->array[idx - 1];
-
 	/* check for collision */
-	if (ht->array[idx] && ht->array[idx]->key && strcmp(ht->array[idx]->key, key))
-		input_node->next = *(ht->array);
-	/* check that prev index node exists */
-	else if (!worker)
-		ht->array[idx] = input_node;
+	for (chk = ht->array[idx]; chk; chk = chk->next)
+		if (!strcmp(chk->key, (char *)key))
+			break;
+	if (chk)
+	{
+		free(chk->value);
+		chk->value = input_node->value;
+		free(input_node->key), free(input_node);
+	}
 	else
 	{
-		/* insert node */
-		input_node->next = worker->next;
-		worker->next = input_node;
+		/* create temp pointer to hash table index we want */
+		worker = ht->array[idx - 1];
+		/* check that prev index node exists */
+		if (!worker)
+			ht->array[idx] = input_node;
+		else
+		{
+			/* insert node */
+			input_node->next = worker->next;
+			worker->next = input_node;
+		}
 	}
-
 	return (1);
 }
