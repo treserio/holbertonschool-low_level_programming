@@ -9,7 +9,12 @@
 char *hash_table_get(const hash_table_t *ht, const char *key)
 {
 	if (ht && ht->array && key && key[0] &&
-		ht->array[key_index((const unsigned char *)key, ht->size)])
+		ht->array[key_index((const unsigned char *)key, ht->size)] &&
+		!strcmp(
+			ht->array[key_index((const unsigned char *)key, ht->size)]->key,
+			key
+		)
+	)
 		return (ht->array[key_index((const unsigned char *)key, ht->size)]->value);
 	return (NULL);
 }
