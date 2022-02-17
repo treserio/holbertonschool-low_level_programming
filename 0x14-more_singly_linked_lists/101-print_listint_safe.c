@@ -20,3 +20,9 @@ size_t print_listint_safe(const listint_t *head)
 
 	return (i);
 }
+/*
+*
+*	PULL REMOTE BEFORE WORK, cleaning up for loop, add printf to start before loop
+*
+*
+ */

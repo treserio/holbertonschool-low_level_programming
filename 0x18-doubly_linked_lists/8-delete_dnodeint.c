@@ -23,16 +23,17 @@ int delete_dnodeint_at_index(dlistint_t **h, unsigned int idx)
 		return (1);
 	}
 	/* find the idxed node */
-	for (; eraser && i < (idx - 1); eraser = eraser->next, ++i)
+	for (; eraser && i < idx; eraser = eraser->next, ++i)
 	;
-	/* if we're not at the node before index rtrn NULL */
-	if (!eraser || !eraser->next)
+	/* if we're not at the node to erase rtrn -1 */
+	if (!eraser)
 		return (-1);
 
-	eraser = eraser->next;
 	eraser->prev->next = eraser->next;
 	if (eraser->next)
 		eraser->next->prev = eraser->prev;
+	else
+		eraser->next = NULL;
 	free(eraser);
 	return (1);
 }
