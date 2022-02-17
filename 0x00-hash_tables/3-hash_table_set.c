@@ -14,7 +14,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 
 	input_node = malloc(sizeof(hash_node_t));
 	/* confirm we can insert into the hash_table given */
-	if (!ht || !ht->array || !ht->size || !key || !input_node)
+	if (!ht || !ht->array || !ht->size || !key || !key[0] || !input_node)
 		return (0);
 	/* establish new node and confirm mallocs */
 	input_node->key = strdup(key);
