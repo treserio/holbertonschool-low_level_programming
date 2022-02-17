@@ -25,8 +25,10 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	idx = key_index((const unsigned char *)key, ht->size);
 	/* check for collision */
 	for (chk = ht->array[idx]; chk; chk = chk->next)
+	{
 		if (!strcmp(chk->key, (char *)key))
 			break;
+	}
 	if (chk)
 	{
 		free(chk->value);
@@ -42,7 +44,6 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 			ht->array[idx] = input_node;
 		else
 		{
-			/* insert node */
 			input_node->next = worker->next;
 			worker->next = input_node;
 		}
