@@ -8,13 +8,14 @@
  */
 char *hash_table_get(const hash_table_t *ht, const char *key)
 {
+	hash_node_t *node;
+
 	if (ht && ht->array && key && key[0] &&
-		ht->array[key_index((const unsigned char *)key, ht->size)] &&
-		!strcmp(
-			ht->array[key_index((const unsigned char *)key, ht->size)]->key,
-			key
-		)
+		ht->array[key_index((const unsigned char *)key, ht->size)]
 	)
-		return (ht->array[key_index((const unsigned char *)key, ht->size)]->value);
+		for (node = ht->array[key_index((const unsigned char *)key, ht->size)];
+			node; node = node->next)
+			if (!strcmp(node->key, key))
+				return (ht->array[key_index((const unsigned char *)key, ht->size)]->value);
 	return (NULL);
 }
