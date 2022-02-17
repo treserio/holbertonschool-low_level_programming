@@ -14,7 +14,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 
 	input_node = malloc(sizeof(hash_node_t));
 	/* confirm we can insert into the hash_table given */
-	if (!ht || !ht->array || !ht->size || !key || !value || !input_node)
+	if (!ht || !ht->array || !ht->size || !key || !input_node)
 		return (0);
 	/* establish new node and confirm mallocs */
 	input_node->key = strdup(key);
@@ -37,7 +37,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	}
 	else
 	{
-		/* create temp pointer to hash table index we want */
+		/* create temp pointer to hash table before index we want */
 		worker = ht->array[idx - 1];
 		/* check that prev index node exists */
 		if (!worker)
