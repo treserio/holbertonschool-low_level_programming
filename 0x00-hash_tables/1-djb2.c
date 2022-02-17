@@ -2,9 +2,7 @@
 
 /**
  * hash_djb2 - implements the djb2 algorithm
- *
  * @str: is the string given
- *
  * Return:  the hash table
  */
 
