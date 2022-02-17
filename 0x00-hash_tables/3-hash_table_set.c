@@ -9,7 +9,7 @@
  */
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
-	hash_node_t *worker, *input_node, *chk;
+	hash_node_t *input_node, *chk;
 	unsigned long int idx;
 
 	input_node = malloc(sizeof(hash_node_t));
@@ -36,17 +36,8 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	}
 	else
 	{
-		/* create temp pointer to hash table before index we want */
-		worker = ht->array[idx - 1];
-		/* check that prev index node exists */
-		if (!worker)
-			ht->array[idx] = input_node;
-		else
-		{
-			ht->array[idx] = input_node;
-			input_node->next = worker->next;
-			worker->next = input_node;
-		}
+		input_node->next = ht->array[idx];
+		ht->array[idx] = input_node;
 	}
 	return (1);
 }
