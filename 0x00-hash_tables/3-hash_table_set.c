@@ -19,11 +19,12 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	/* establish new node and confirm mallocs */
 	input_node->key = strdup(key);
 	input_node->value = strdup(value);
-	input_node->next = NULL;
 	if (!input_node->key || !input_node->value)
 		return (0);
 	/* find the index */
 	idx = key_index((const unsigned char *)key, ht->size);
+	/* use array[idx] for prev location */
+	input_node->next = ht->array[idx];
 	/* check for collision */
 	for (chk = ht->array[idx]; chk; chk = chk->next)
 		if (!strcmp(chk->key, (char *)key))
@@ -35,10 +36,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		free(input_node->key), free(input_node);
 	}
 	else
-	{
-		/* use array[idx] for prev location */
-		input_node->next = ht->array[idx];
 		ht->array[idx] = input_node;
-	}
+
 	return (1);
 }
