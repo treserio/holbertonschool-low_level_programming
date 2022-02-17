@@ -8,7 +8,7 @@
  */
 char *hash_table_get(const hash_table_t *ht, const char *key)
 {
-	if (ht && key && key[0] &&
+	if (ht && ht->array && key && key[0] &&
 		ht->array[key_index((const unsigned char *)key, ht->size)])
 		return (ht->array[key_index((const unsigned char *)key, ht->size)]->value);
 	return (NULL);
