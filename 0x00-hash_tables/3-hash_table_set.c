@@ -18,8 +18,10 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		return (0);
 	/* establish new node and confirm mallocs */
 	input_node->key = strdup(key);
+	if (!input_node->key)
+		return (0);
 	input_node->value = strdup(value);
-	if (!input_node->key || !input_node->value)
+	if (!input_node->value)
 		return (0);
 	/* find the index */
 	idx = key_index((const unsigned char *)key, ht->size);
