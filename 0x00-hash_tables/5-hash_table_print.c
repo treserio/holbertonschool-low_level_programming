@@ -16,12 +16,11 @@ void hash_table_print(const hash_table_t *ht)
 	{
 		if (comma && ht->array[i])
 			printf(", ");
-		while (ht->array[i])
+		for (; ht->array[i]; ht->array[i] = ht->array[i]->next)
 		{
 			printf("'%s': '%s'", ht->array[i]->key, ht->array[i]->value), ++comma;
 			if (ht->array[i]->next)
 				printf(", ");
-			ht->array[i] = ht->array[i]->next;
 		}
 	}
 	printf("}\n");
