@@ -19,15 +19,21 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	/* establish new node and confirm mallocs */
 	input_node->key = strdup(key);
 	if (!input_node->key)
+	{
+		free(input_node);
 		return (0);
+	}
 	input_node->value = strdup(value);
 	if (!input_node->value)
+	{
+		free(input_node->key), free(input_node);
 		return (0);
+	}
 	/* find the index */
 	idx = key_index((const unsigned char *)key, ht->size);
 	/* use array[idx] for prev location */
 	input_node->next = ht->array[idx];
-	/* check for collision */
+	/* check for matching key in index */
 	for (chk = ht->array[idx]; chk; chk = chk->next)
 		if (!strcmp(chk->key, (char *)key))
 			break;
