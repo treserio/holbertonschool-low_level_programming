@@ -1,7 +1,7 @@
 #include "search_algos.h"
 /**
- * linear_search - run a linear sort
- * @array: the array of ints to sort
+ * linear_search - run a linear search and return index of value
+ * @array: the array of ints to search
  * @size: the size of the array
  * @value: the number to search for
  * Return: Always EXIT_SUCCESS
