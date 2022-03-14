@@ -30,7 +30,9 @@ int b_split(int *array, size_t st, size_t end, int val)
 	printf("Searching in array: ");
 	p_array(array, st, end);
 	/* exit case for unfound */
-	if (st == end)
+	if (st == end && array[st] == val)
+		return (st);
+	else if (st == end)
 		return (-1);
 	/* find our mid point */
 	mid = mid_point(st, end);
@@ -38,11 +40,8 @@ int b_split(int *array, size_t st, size_t end, int val)
 	if (array[mid] == val)
 		return (mid);
 	else if (array[mid] > val)
-		return (b_split(array, 0, mid - 1, val));
-	else
-		return (b_split(array, mid + 1, end, val));
-	/* default exit case */
-	return (-1);
+		return (b_split(array, st, mid - 1, val));
+	return (b_split(array, mid + 1, end, val));
 }
 
 /**
