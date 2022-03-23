@@ -91,11 +91,10 @@ void p_array(int *array, size_t idx, size_t end)
  */
 int first_idx(int *array, size_t st, size_t end, int val)
 {
-	size_t i;
+	if (array[st] == val)
+		return (st);
+	else if (st == end)
+		return (-1);
 
-	for (i = st; i < end; ++i)
-		if (array[i] == val)
-			return (i);
-
-	return (-1);
+	return first_idx(array, st + 1, end, val);
 }
