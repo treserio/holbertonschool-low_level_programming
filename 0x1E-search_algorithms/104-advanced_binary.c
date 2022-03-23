@@ -96,5 +96,5 @@ int first_idx(int *array, size_t st, size_t end, int val)
 	else if (st == end)
 		return (-1);
 
-	return first_idx(array, st + 1, end, val);
+	return (first_idx(array, st + 1, end, val));
 }
