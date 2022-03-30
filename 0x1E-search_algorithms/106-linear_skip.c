@@ -17,7 +17,7 @@ skiplist_t *linear_skip(skiplist_t *list, int value)
 	/* get our express value and total nodes, only use for total is in printing */
 	ttl = cnt;
 	exp = sqrt((double)cnt);
-	for (run = list, jumper = list; run; jumper = run)
+	for (run = list, jumper = list; 1; jumper = run)
 	{
 		if (run->index)
 			printf("Value checked at index [%ld] = [%d]\n", run->index, run->n);
@@ -28,7 +28,8 @@ skiplist_t *linear_skip(skiplist_t *list, int value)
 			for (cnt = 0; cnt < exp && run; run = run->next, ++cnt)
 			;
 		}
-		if (run && run->n >= value)
+		/* if we've exceeded the value or we've hit the end of the list */
+		if ((run && run->n >= value) || !run)
 			break;
 	}
 	if (run)
