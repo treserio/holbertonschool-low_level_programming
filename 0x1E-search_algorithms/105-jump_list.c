@@ -13,7 +13,7 @@ listint_t *jump_list(listint_t *list, size_t size, int value)
 	/* initial check for list */
 	if (!list)
 		return (NULL);
-	for (run = list, cnt = 0; run; run = run->next, ++cnt)
+	for (run = list, cnt = 0; run->next; run = run->next, ++cnt)
 	;
 	/* get our express value and total nodes, only use for total is in printing */
 	exp = sqrt((double)size);
@@ -25,11 +25,11 @@ listint_t *jump_list(listint_t *list, size_t size, int value)
 		if (run->n < value)
 		{
 			jump = run->index;
-			for (cnt = 0; cnt < exp && run; run = run->next, ++cnt)
+			for (cnt = 0; cnt < exp && run->next; run = run->next, ++cnt)
 			;
 		}
 		/* if we've exceeded the value or we've hit the end of the list */
-		if ((run && run->n >= value) || !run)
+		if ((run && run->n >= value) || !run->next)
 			break;
 	}
 	if (run)
