@@ -13,8 +13,6 @@ listint_t *jump_list(listint_t *list, size_t size, int value)
 	/* initial check for list */
 	if (!list)
 		return (NULL);
-	for (run = list, cnt = 0; run->next; run = run->next, ++cnt)
-	;
 	/* get our express value and total nodes, only use for total is in printing */
 	exp = sqrt((double)size);
 	for (run = list, jumper = list; 1; jumper = run)
@@ -32,8 +30,7 @@ listint_t *jump_list(listint_t *list, size_t size, int value)
 		if ((run && run->n >= value) || !run->next)
 			break;
 	}
-	if (run)
-		printf("Value checked at index [%ld] = [%d]\n", run->index, run->n);
+	printf("Value checked at index [%ld] = [%d]\n", run->index, run->n);
 	/* fix final index printing if we're close */
 	if (size - 1 < jump + exp)
 		printf("Value found between indexes [%ld] and [%ld]\n", jump, size - 1);
