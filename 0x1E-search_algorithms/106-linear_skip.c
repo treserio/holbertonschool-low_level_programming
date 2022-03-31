@@ -7,43 +7,44 @@
  */
 skiplist_t *linear_skip(skiplist_t *list, int value)
 {
-	skiplist_t *run, *jumper;
-	size_t cnt, ttl, exp, jump;
+	skiplist_t *run, *hold, *last;
+	int found = 0;
 	/* initial check for list */
 	if (!list)
 		return (NULL);
-	for (run = list, cnt = 0; run; run = run->next, ++cnt)
-	;
-	/* get our express value and total nodes, only use for total is in printing */
-	ttl = cnt;
-	exp = sqrt((double)cnt);
-	for (run = list, jumper = list; 1; jumper = run)
+	/* run through list using express pointer */
+	for (run = list, hold = list; run;
+		run = run->express)
 	{
 		if (run->index)
 			printf("Value checked at index [%ld] = [%d]\n", run->index, run->n);
-		/* jump if the value is lower */
+		/* last_idx if the value is lower */
 		if (run->n < value)
-		{
-			jump = run->index;
-			for (cnt = 0; cnt < exp && run; run = run->next, ++cnt)
-			;
-		}
-		/* if we've exceeded the value or we've hit the end of the list */
-		if ((run && run->n >= value) || !run)
+			hold = run;
+		if (run->n >= value)
 			break;
 	}
+	last = run;
 	if (run)
-		printf("Value checked at index [%ld] = [%d]\n", run->index, run->n);
-	/* fix final index printing if we're close */
-	if (ttl - 1 < jump + exp)
-		printf("Value found between indexes [%ld] and [%ld]\n", jump, ttl - 1);
+		printf("Value found between indexes [%ld] and [%ld]\n",
+			hold->index, run->index);
 	else
-		printf("Value found between indexes [%ld] and [%ld]\n", jump, jump + exp);
-	/* search within range for value */
-	for (run = jumper; run && run->n != value; run = run->next)
+	{
+		for (run = hold; run->next; run = run->next)
+		;
+		printf("Value found between indexes [%ld] and [%ld]\n",
+			hold->index, run->index);
+	}
+	for (run = hold; run && run != last; run = run->next)
+	{
 		printf("Value checked at index [%ld] = [%d]\n", run->index, run->n);
-	/* checker still wants print to show when value is found */
-	if (run)
-		printf("Value checked at index [%ld] = [%d]\n", run->index, run->n);
-	return (run);
+		if (value == run->n)
+		{
+			++found;
+			break;
+		}
+	}
+	if (found)
+		return (run);
+	return (NULL);
 }
